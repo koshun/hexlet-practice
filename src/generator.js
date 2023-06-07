@@ -1,9 +1,9 @@
 const digits = '0123456789';
 const lowercase = 'abcdefghijklmnopqrstuvwxyz';
 const uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const symbols = '~!@#$%^&*_-+=`|\\(){}[]:;"\'<>,.?/';
+const symbols = ' !@#$%^&*_-+=`|\\(){}[]:;"\'<>,.?/';
 const getRandomInt = (min, max) => Math.floor(min + Math.random() * (max - min + 1));
-const calcCoplexity = (pwdLen, charSetLen) => Math.round(Math.log2(charSetLen ** pwdLen), 2);
+const calcComplexity = (pwdLen, charSetLen) => Math.round(Math.log2(charSetLen ** pwdLen), 2);
 
 const generator = (params) => {
   let password = '';
@@ -24,7 +24,7 @@ const generator = (params) => {
   for (let i = 0; i < length; i += 1) {
     password += charSet.charAt(getRandomInt(0, charSet.length - 1));
   }
-  const complexity = calcCoplexity(password.length, charSet.length);
+  const complexity = calcComplexity(password.length, charSet.length);
   return { password, complexity };
 };
 
@@ -35,9 +35,9 @@ const multyGenerator = (params, num) => {
 };
 
 const testParams = {
-  pwdLength: 4, useDigits: true, useLowerCase: true, useUpperCase: true, useSymbols: true,
+  pwdLength: 20, useDigits: true, useLowerCase: true, useUpperCase: true, useSymbols: true,
 };
 
-console.log(multyGenerator(testParams, 100));
+multyGenerator(testParams, 10);
 
 export default generator;
