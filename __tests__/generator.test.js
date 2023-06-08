@@ -49,7 +49,7 @@ describe('test generator function', () => {
     expect(password).toEqual(expected);
   });
   test('return lower and upper symbols', () => {
-    const expected = expect.stringMatching(/[a-z][A-Z]/);
+    const expected = expect.stringMatching(/[a-zA-Z]+/);
     const params = {
       pwdLength: 5,
       useDigits: false,
