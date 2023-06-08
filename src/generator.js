@@ -50,7 +50,7 @@ const multyGenerator = (params, num) => {
 };
 
 const testParams = {
-  pwdLength: 10, useDigits: true, useLowerCase: false, useUpperCase: false, useSymbols: false,
+  pwdLength: 10, useDigits: true, useLowerCase: true, useUpperCase: true, useSymbols: false,
 };
 
 multyGenerator(testParams, 10);

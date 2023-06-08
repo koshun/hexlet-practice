@@ -5,10 +5,10 @@ Hexlet practice project (AbreCodeAbre group #37)
 
 
 принятые соглашения в наименованиях:
-1. passwordLengthInput
-2. includeCharsInput
-3. includeNumbersInput
-4. includeSymbolsInput
-5. generatePasswordButton
-6. signInButton
+1. password__length__input
+2. include__chars__input
+3. include__numbers__input
+4. include__symbols__input
+5. generate__password__button
+6. sign__in__button
 7
