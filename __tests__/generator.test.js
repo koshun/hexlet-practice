@@ -13,16 +13,14 @@ describe('test generator function', () => {
     expect(gen.password).toHaveLength(5);
   });
   test('returns only numbers', () => {
-
     const expected = expect.stringMatching(/\d/);
-    
     const params = {
       pwdLength: 5,
       useDigits: true,
       useLowerCase: false,
       useUpperCase: false,
       useSymbols: false,
-    }
+    };
     const { password } = generator(params);
     expect(password).toEqual(expected);
   });
@@ -61,5 +59,5 @@ describe('test generator function', () => {
     };
     const { password } = generator(params);
     expect(password).toEqual(expected);
-  })
-})
+  });
+});
