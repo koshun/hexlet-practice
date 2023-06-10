@@ -6,4 +6,6 @@ const port = process.env.PORT || 3001;
 
 route(app);
 
+app.set('views', './src/Views');
+
 app.listen(port, () => console.log(`server work on port ${port}`));
