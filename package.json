@@ -6,6 +6,7 @@
   "main": "app.js",
   "scripts": {
     "test": "NODE_OPTIONS=--experimental-vm-modules npx jest",
+    "devstart": "nodemon app.js",
     "start": "node app.js"
   },
   "author": "AbreCodeAbre",
@@ -20,6 +21,8 @@
     "prettier": "^3.0.0-alpha.9-for-vscode"
   },
   "dependencies": {
-    "express": "^4.18.2"
+    "body-parser": "^1.20.2",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.0.7"
   }
 }

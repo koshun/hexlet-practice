@@ -1,12 +1,13 @@
 import loginController from '../Controllers/loginController.js';
+import singupController from '../Controllers/signupController.js';
+import userController from '../Controllers/userController.js';
 
 export default (app) => {
-  app.get('/login', loginController);
+  // userRouter.get('/login', loginController);
+  // userRouter.get('signup', singupController);
+  // app.use('/user', userRouter);
 
-  app.get('/signup', (req, res) => {
-    res.send('this is send message register page');
-  });
-  app.get('/', (req, res) => {
-    res.send('i\'m main page');
-  });
+  app.get('/login', loginController);
+  app.get('/signup', singupController);
+  app.get('/', userController);
 };
