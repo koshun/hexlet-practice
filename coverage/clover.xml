@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1686379235059" clover="3.2.0">
-  <project timestamp="1686379235059" name="All files">
+<coverage generated="1686394001546" clover="3.2.0">
+  <project timestamp="1686394001547" name="All files">
     <metrics statements="37" coveredstatements="37" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5" elements="52" coveredelements="52" complexity="0" loc="37" ncloc="37" packages="1" files="1" classes="1"/>
     <file name="generator.js" path="/home/koshun/college/hexlet-practice/src/generator.js">
       <metrics statements="37" coveredstatements="37" conditionals="10" coveredconditionals="10" methods="5" coveredmethods="5"/>
