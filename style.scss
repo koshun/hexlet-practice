@@ -24,7 +24,7 @@ li {
 .container {
   max-width: 1420px;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: screen;
   flex-direction: column;
 }
 .header {
@@ -113,5 +113,5 @@ li {
   align-items: flex-end;
   color:$text-color;
   font-size: 22px;
-  padding-bottom: 41px;
+  margin-bottom: 45px;
 }

@@ -6,8 +6,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- <link rel="stylesheet" href="./assets/styles/style.scss"> -->
   <title>login page</title>
-  <script type="module" crossorigin src="/assets/index-b5612e58.js"></script>
-  <link rel="stylesheet" href="/assets/index-0ba03018.css">
 </head>
 <body>
   <div class="container flex">
@@ -15,7 +13,7 @@
       <!-- Logo section -->
       <section class="logo">
         <a href="/" class="logo__link">
-          <img src="/assets/logo-0ef7728a.png" alt="logo" class="logo__img"></a>
+          <img src="./dist/assets/logo-0ef7728a.png" alt="logo" class="logo__img"></a>
         </section>
         <!-- Welcome section -->
         <section class="welcome">
@@ -42,7 +40,7 @@
     <main class="content flex">
       <form action="#" class="form flex">
         <h2 class="form__header">Регистрация</h2>
-        <!-- <input type="text" name="login" class="form__login" placeholder="Login" aria-label="Login"> -->
+        <input type="text" name="login" class="form__login" placeholder="Login" aria-label="Login">
         <input type="text" name="email" class="form__email" placeholder="Email" aria-label="Email">
         <input type="password" placeholder="Send your password here" name="password" id="password" class="form__password"  aria-label="Password">
         <button type="submit" class="form__submit">Sing Up</button>
@@ -53,6 +51,6 @@
       <p class="copyright">&copy;AbraCodeAbra.com. Все права защищены. 2023</p>
     </footer>
   </div>
-  
+  <script type="module" src="./main.js"></script>
 </body>
 </html>
