@@ -12,3 +12,9 @@ lint-fix:
 
 test-coverage:
 	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
+
+dev:
+	npm run dev
+
+build:
+	npm run build
