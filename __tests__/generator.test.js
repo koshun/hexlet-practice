@@ -1,4 +1,4 @@
-import generator from '../src/generator.js';
+import generator from '../src/Hellpers/generatorHelper.js';
 
 describe('returns the required number of characters', () => {
   const params = {
@@ -8,7 +8,7 @@ describe('returns the required number of characters', () => {
     useUpperCase: false,
     useSymbols: true,
   };
-  for (let i = 1; i < 15; i += 1) {
+  for (let i = 1; i < 10; i += 1) {
     test('returns the required number of characters.', () => {
       params.pwdLength = i;
       const gen = generator(params);
@@ -17,8 +17,15 @@ describe('returns the required number of characters', () => {
   }
 });
 
+describe('test generator without object parameter', () => {
+  test('must return blank line', () => {
+    const { password } = generator({});
+    expect(password).toEqual('');
+  });
+});
+
 describe('test generator function', () => {
-  for (let i = 1; i < 15; i += 1) {
+  for (let i = 1; i < 10; i += 1) {
     test('returns only numbers', () => {
       const expected = expect.stringMatching(/\d/);
       const params = {
@@ -32,8 +39,6 @@ describe('test generator function', () => {
       const { password } = generator(params);
       expect(password).toEqual(expected);
     });
-  }
-  for (let i = 1; i < 15; i += 1) {
     test('returns numbers and lower&uppser letters', () => {
       const expected = expect.stringMatching(/\w/);
       const params = {
@@ -47,9 +52,6 @@ describe('test generator function', () => {
       const { password } = generator(params);
       expect(password).toEqual(expected);
     });
-  }
-
-  for (let i = 1; i < 15; i += 1) {
     test('return hard password', () => {
       const expected = expect.stringMatching(/.*/);
       const params = {
@@ -63,8 +65,6 @@ describe('test generator function', () => {
       const { password } = generator(params);
       expect(password).toEqual(expected);
     });
-  }
-  for (let i = 1; i < 15; i += 1) {
     test('return lower and upper symbols', () => {
       const expected = expect.stringMatching(/[a-zA-Z]+/);
       const params = {

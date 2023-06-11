@@ -13,3 +13,5 @@ Hexlet practice project (AbreCodeAbre group #37)
 4. include__symbols__input
 5. generate__password__button
 6. sign__in__button
+
+**Для запуска сервера набрать ***make run*** **
