@@ -1,0 +1,9 @@
+.greeting__header,
+.registration__paragraph {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.logo__text {
+    width: 25%;
+}
