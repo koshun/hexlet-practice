@@ -13,7 +13,7 @@ export default () => {
     extname: 'hbs',
     partialsDir: join(__dirname, '/../src/Views/partials/'),
   }));
-  app.set('views', './src/Views'); // './src/Views'
+  app.set('views', join(__dirname, '/../src/Views')); // './src/Views'
   app.set('view engine', 'hbs');
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static(join(__dirname, '/../public')));
