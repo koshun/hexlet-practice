@@ -5,10 +5,13 @@ const User = sequelize.define('user', {
   login: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
   },
   email: {
     type: DataTypes.STRING,
     allowNull: false,
+    unique: true,
+    isEmail: true,
   },
   password: {
     type: DataTypes.STRING,
