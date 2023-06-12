@@ -4,135 +4,187 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/styles/style.css">
   <title>Password keaper</title>
 </head>
 <body>
-  <!-- <div id="app"></div> -->
+	<!-- <div id="app"></div> -->
 
-  <div class="header-top">
-    <button class="header-tip__button-registration">Регистрация</button>
-    <p class="header-top__bad">Плохой</p>
-    <p class="header-top__protected">Надежный</p>
-  </div>
 
-  <div class="wrapper">
+	<div class="wrapper">
+	
+		<!-- Разделил экран на три вертикальные части 'split-left', 'center', 'split-right' -->
+		<div class="split-left">
 
-    <div class="header-bottom">
+			<!-- Блок лого -->
+			<div class="logo">
+				<img src="assets/img/logo-icon.svg" alt="" class="logo__icon">
+				<span class="logo__text">I want to keep your secret</span>
+			</div>
+ 
+			<!-- Картинка Башня -->
+			<div class="split-left__tower">
+				<img src="assets/img/tower-icon.svg" alt="" class="tower-icon">
+			</div>
+ 
+		</div>
+ 
 
-      <div class="header-bottom__logo">
-        <a href="">
-          <img src="img/icons/logo-icon.svg" alt="">
-        </a>
-        <p>I want to keep your secrets</p>
-      </div>
+		<div class="center">
+ 
+			<h2 class="title">Генератор паролей</h2>
+			
+			<!-- Блок вывода пароля в нем: вывод пароля, уровень надежности,
+			кнопка сделать другой пароль, кнопка скопировать пароль -->
+			<div class="output-form center__output-form">
+				
+				<!-- Вывод пароля -->
+				<input type="text" class="output-form__password" disabled/>
+		
+		
+				<!-- Уровень надежности, три состояния. Если:
+				Надежный, то password-check-text_protected и password-check-text_protected и 'Надежный'
+				Плохой, то password-check-text_bad и password-check-text_bad и 'Плохой'
+				Хороший, то password-check-text_good и password-check-text_good и 'Хороший' -->
+		
+				<div class="password-check output-form__password-check password-check_good">
+					<span class="password-check-text_good">Хороший</span>  
+				</div>
+		
+		
+				<!-- Блок с кнопкой другой пароль -->
+				<div class="repeat output-form__repeat">
+					<button type="button" class="repeat__button">
+						<img src="assets/img/repeat-password-icon.svg" alt="" class="repeat__button-icon">
+					</button>
+				</div>
+		
+				<!-- Блок с кнопкой повторить пароль -->
+				<div class="output__copy-password copy-password">
+					<button type="button" class="copy-password__button">
+						<img src="assets/img/copy-password-icon.svg" alt="" class="copy-password__button-icon">
+					</button>
+				</div>
+			</div>
+ 
 
-      <div class="personal">
-        <div class="personal__manikin">
-          <img src="img/icons/manikin-icon.svg" alt="">
-        </div>
-        <button class="registration-button">Регистрация</button>
-        <button class="sign-in-button">Вход</button>
-        <div class="personal__sign-in">
-          <img src="img/icons/sign-in-button-icon.svg" alt="">
-        </div>
-      </div>
-    </div>
+			<!-- Блок с чекбоксами -->
+			<div class="checkbox-group center__checkbox-group">
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-chars-input-lower checkbox" name="">
+					<span class="checkbox__text">abc</span>
+				</label>
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-chars-input-upper checkbox" name="">
+					<span class="checkbox__text">ABC</span>
+				</label>
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-numbers-input checkbox" name="">
+					<span class="checkbox__text">123</span>
+				</label>
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-symbols-input checkbox" name="">
+					<span class="checkbox__text">@#$^</span>
+				</label>
+			</div>
+ 
 
-    <main>
+			<!-- Длина пароля.Будет слайдер -->
+			<div class="password-length center__password-length">
+	
+				<div class="password-length__range-block">
+					<input type="range" class="password-length__range" name="" min="10" max="25">
+				</div>
 
-      <div class="split-left">
+				<!-- В этом блоке (в инпуте) будет выводиться выбранная длина -->
+				<div class="password-length__output-block">
+					<label>
+						<span class="password-length__text">Длина пароля:</span>
+						
+						<input type="text" placeholder="??" class="password-length__output" disabled>
+					</label>
+				</div>
+ 
+			</div>
+ 
 
-        <h1>Генератор паролей</h1>
+			<!-- Блок с кнопкой генерации повтора -->
+			<div class="generate-password center__generate-password">
+				<button type="button" class="generate-password__button"><span class="text">Сгенерировать
+						пароль</span></button>
+			</div>
+ 
+			<!-- Копирайт -->
+			<div class="copyright">
+				<img src="assets/img/copyright-icon.svg" alt="" class="copyright__icon">
+				<span class="copyright__text">AbraCodeAbra.com. Все права защищены. 2023</span>
+			</div>
+ 
+		</div>
+ 
+		<!-- Ветикальная линия -->
+		<div class="vl"></div>
+ 
 
-        <form class="password-form rectangle1">
+		<div class="split-right">
+ 
 
-          <div class="password-output-wrapper">
+			<!-- Блок персонализации, два состояния:
+			пользователь не авторизовался и
+			пользователь авторизовался -->
+			<div class="personal">
 
-            <div class="password-output">
-              <output name="result" class="pasword-output__form">здесь будет вывод пароля</output>
-              <button class="password-output__repeat">
-                <img src="img/icons/repeat-password-icon.svg" alt="">
-              </button>
-            </div>
+				<!-- Не авторизованный -->
+				<div class="personal_no-auth">
 
-            <button class="copy-password-button">
-              <img src="img/icons/copy-password-icon.svg" alt="">
-            </button>
-          </div>
+					<div class="personal__sign-up sign-up">
+						<img src="assets/img/manikin-icon.svg" alt="" class="sign-up__icon">
+						<a href="" class="sign-up__link text">Регистрация</a>
+					</div>
+	
+					<div class="personal__sign-in sign-in">
+						<a href="" class="sign-in__link text">Вход</a>
+						<img src="assets/img/sign-in-button-icon.svg" alt="" class="sign-in__icon">
+					</div>
 
-          <div class="checkbox-group">
-            <label>
-              <input type="checkbox" class="include-chars-input-lower" name="include-chars-input-lower">
-              abc
-            </label>
-            <label>
-              <input type="checkbox" class="include-chars-input-upper" name="include-chars-input-upper">
-              ABC
-            </label>
-            <label>
-              <input type="checkbox" class="include-numbers-input" name="include-numbers-input">
-              123
-            </label>
-            <label>
-              <input type="checkbox" class="include-symbols-input" name="include-symbols-input">
-              @#$^
-            </label>
-          </div>
+				</div>
 
-          <div class="password-length-input">
-            <label>
-              <input type="range" name="volume" min="10" max="25">
-              </br>Длина пароля:
-            </label>
-          </div>
+				<!-- Ниже авторизованный -->
 
-          <button type="submit" class="generate-password-button">Забабахать</button>
 
-          <div class="tower">
-            <img src="img/icons/tower-icon.svg" alt="">
-          </div>
+				<!-- <div class="personal_auth">
+					<div class="personal__user-name user-name ">
+						<img src="assets/img/manikin-icon.svg" alt="">
+						<span class="user-name__text text">Имя пользователя</span>
+					</div>
+				</div> -->
+				
+			</div>
+ 
 
-        </form>
-      </div>
+			<!-- Здесь рассаказываем какой пароль надежный -->
+			<div class="explain split-right__explain">
+				<h2 class="explatin__title text">Какой пароль считается надежным</h2>
+				<ul class="explain__list">
+					<li class="explain__item">
+						<img src="assets/img/unique-icon.svg" alt="">
+						<span class="explain__text text">Уникальный</span>
+					</li>
+					<li class="explain__item">
+						<img src="assets/img/complex-icon.svg" alt="">
+						<span class="explain__text text">Сложный</span>
+					</li>
+					<li class="explain__item">
+						<img src="assets/img/long-icon.svg" alt="">
+						<span class="explain__text text">Длинный</span>
+					</li>
+				</ul>
+ 
+			</div>
+ 
+		</div>
 
-      <div class="split-right">
+	</div>
 
-        <div class="explain">
-          <h2 class="explatin__sentence">Какой пароль считается надежным</h2>
-
-          <div class="explain__unique">
-            <div class="explain__unique-icon">
-              <img src="img/icons/unique-icon.svg" alt="">
-            </div>
-            <p class="explain__unique-word">Уникальный</p>
-          </div>
-
-          <div class="explain__complex">
-            <div class="explain__complex-icon">
-              <img src="img/icons/complex-icon.svg" alt="">
-            </div>
-            <p class="explain__complex-word">Сложный</p>
-          </div>
-
-          <div class="explain__long">
-            <div class="explain__long-icon">
-              <img src="img/icons/long-icon.svg" alt="">
-            </div>
-            <p class="explain__long-word">Длинный</p>
-          </div>
-
-        </div>
-
-      </div>
-    </main>
-
-    <footer class="footer">
-      <div class="copyright">
-        <img src="img/icons/copyright-icon.svg" alt="" class="copyright__icon">
-        <p class="copyright__sentence">AbraCodeAbra.com. Все права защищены. 2023</p>
-      </div>
-    </footer>
-
-  </div>
 </body>
 </html>
