@@ -1,6 +1,6 @@
-@import url('./components/input-registration.css');
-@import url('./components/text-registration.css');
-@import url('./components/button-registration.css');
+@import url('./input-registration.css');
+@import url('./text-registration.css');
+@import url('./button-registration.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
 
 body {
