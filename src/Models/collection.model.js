@@ -3,7 +3,7 @@ import sequelize from '../../config/dbConfig.js';
 
 const Collection = sequelize.define('collection', {
   name: {
-    type: DataTypes.String,
+    type: DataTypes.STRING,
     allowNull: false,
     unique: true,
   },
