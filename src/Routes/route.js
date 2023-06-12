@@ -6,8 +6,10 @@ export default (app) => {
   // userRouter.get('/login', loginController);
   // userRouter.get('signup', singupController);
   // app.use('/user', userRouter);
-
-  app.get('/login', loginController);
+  app.route('/login')
+    .get(loginController.index)
+    .post(loginController.store);
+  // app.get('/login', loginController.index);
   app.get('/signup', singupController);
   app.get('/', userController);
 };
