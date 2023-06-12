@@ -1,5 +1,5 @@
 .greeting__header,
-.registration__paragraph {
+.registration__paragraph, .login__paragraph {
     text-align: center;
     margin: 20px auto;
 }

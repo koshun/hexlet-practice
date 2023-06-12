@@ -1,4 +1,4 @@
-[class*="registration__input"] {
+[class*="registration__input"], [class*="login__input"]  {
 	box-sizing: border-box;
 	padding: 10px 20px;
 	display: block;
