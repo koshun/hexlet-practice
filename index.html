@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="assets/styles/style.css">
   <title>Password keaper</title>
 </head>
@@ -18,28 +19,25 @@
 
 			<!-- Блок лого -->
 			<div class="logo">
-				<img src="assets/img/logo-icon.svg" alt="" class="logo__icon">
-				<span class="logo__text">I want to keep your secret</span>
+        <a href="/" class="logo__link">				
+          <img src="assets/img/logo-icon.svg" alt="" class="logo__icon">
+          <span class="logo__text">I want to keep your secret</span>
+        </a>
 			</div>
  
 			<!-- Картинка Башня -->
 			<div class="split-left__tower">
 				<img src="assets/img/tower-icon.svg" alt="" class="tower-icon">
 			</div>
- 
 		</div>
- 
-
 		<div class="center">
- 
 			<h2 class="title">Генератор паролей</h2>
-			
 			<!-- Блок вывода пароля в нем: вывод пароля, уровень надежности,
 			кнопка сделать другой пароль, кнопка скопировать пароль -->
 			<div class="output-form center__output-form">
 				
 				<!-- Вывод пароля -->
-				<input type="text" class="output-form__password" disabled/>
+				<input type="text" class="output-form__password" />
 		
 		
 				<!-- Уровень надежности, три состояния. Если:
@@ -139,11 +137,11 @@
 
 					<div class="personal__sign-up sign-up">
 						<img src="assets/img/manikin-icon.svg" alt="" class="sign-up__icon">
-						<a href="" class="sign-up__link text">Регистрация</a>
+						<a href="/registration.html" class="sign-up__link text">Регистрация</a>
 					</div>
 	
 					<div class="personal__sign-in sign-in">
-						<a href="" class="sign-in__link text">Вход</a>
+						<a href="/login.html" class="sign-in__link text">Вход</a>
 						<img src="assets/img/sign-in-button-icon.svg" alt="" class="sign-in__icon">
 					</div>
 
