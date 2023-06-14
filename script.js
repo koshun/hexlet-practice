@@ -2,37 +2,39 @@ import password from './src/generator.js';
 
 const slider = document.querySelector('.password-length__range');
 const lengthField = document.querySelector('.password-length__output');
-let pwdLength;
-slider.addEventListener('change', (event) => {
-  pwdLength = event.target.value;
-  lengthField.setAttribute('placeholder', pwdLength);
+
+const checkboxes = document.querySelectorAll('.checkbox');
+const params = {
+  pwdLength: 6
+};
+slider.addEventListener('input', (event) => {
+  params.pwdLength = event.target.value;
+  lengthField.setAttribute('placeholder', params.pwdLength);
 });
-let useDigits;
-document.querySelector('.checkbox-group__include-numbers-input')
-  .addEventListener('change', (event) => useDigits = event.target.checked);
 
-let useLowerCase;
-document.querySelector('.checkbox-group__include-chars-input-lower')
-  .addEventListener('change', (event) => useLowerCase = event.target.checked);
-
-let useUpperCase;
-
-document.querySelector('.checkbox-group__include-chars-input-upper')
-  .addEventListener('change', (event) => useUpperCase = event.target.checked);
-
-let useSymbols;
-document.querySelector('.checkbox-group__include-symbols-input')
-  .addEventListener('change', (event) => useSymbols = event.target.checked);
-
-const func = () => {
-  const pwd = password({
-    pwdLength, useDigits, useLowerCase, useUpperCase, useSymbols,
+const pwdGen = () => {
+  checkboxes.forEach((node) => {
+    const classes = node.classList;
+    if (classes.contains('checkbox-group__include-numbers-input')) {
+      params.useDigits = node.checked;
+    }
+    if (classes.contains('checkbox-group__include-symbols-input')) {
+      params.useSymbols = node.checked;
+    }
+    if (classes.contains('checkbox-group__include-chars-input-upper')) {
+      params.useUpperCase = node.checked;
+    }
+    if (classes.contains('checkbox-group__include-chars-input-lower')) {
+      params.useLowerCase = node.checked;
+    }
   });
+  const pwd = password(params);
   return pwd.password;
 };
+
 const input = document.querySelector('.output-form__password');
 const btn = document.querySelector('.generate-password__button');
 const result = () => {
-  input.setAttribute('value', func());
+  input.setAttribute('value', pwdGen());
 };
 btn.addEventListener('click', result);
