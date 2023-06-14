@@ -1,5 +1,4 @@
 import password from './src/generator.js';
-alert('hello')
 
 const slider = document.querySelector('.password-length__range');
 const lengthField = document.querySelector('.password-length__output');
