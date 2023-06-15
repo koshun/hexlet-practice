@@ -40,6 +40,7 @@ const btnRepeat = document.querySelector('.repeat__button');
 const complDiv = document.querySelector('.password-check');
 const complSpan = document.querySelector('.password-check > span');
 const removeClasses = (el, prefix) => el.className.split(' ').filter((cl) => !cl.startsWith(prefix)).join(' ');
+
 const changeComplexity = () => {
   const complexity = checkComplexity(input.value);
   // console.log(complexity);
@@ -61,10 +62,13 @@ const changeComplexity = () => {
     complSpan.innerHTML = 'Надежный';
   }
 };
+
 const result = () => {
-  input.setAttribute('value', pwdGen());
+  // input.setAttribute('value', pwdGen());
+  input.value = pwdGen();
   changeComplexity();
 };
+
 result();
 btn.addEventListener('click', result);
 btnRepeat.addEventListener('click', result);
