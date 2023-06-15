@@ -1,39 +1,44 @@
-import password from './src/generator.js';
-alert('hello')
+import onChange from 'on-change';
+import generator from './src/generator.js';
 
-const slider = document.querySelector('.password-length__range');
-const lengthField = document.querySelector('.password-length__output');
-let pwdLength;
-slider.addEventListener('change', (event) => {
-  pwdLength = event.target.value;
-  lengthField.setAttribute('placeholder', pwdLength);
+const state = {
+  range: {
+    value: 0,
+  },
+  selections: {
+    useLowerCase: false,
+    useUpperCase: false,
+    useDigits: false,
+    useSymbols: false,
+  },
+};
+
+const range = document.querySelector('.password-length__range');
+const passwordLengthOutput = document.querySelector('.password-length__output');
+const output = document.querySelector('.output-form__password');
+const generatePasswordButton = document.querySelector('.generate-password__button');
+
+passwordLengthOutput.value = range.value;
+
+const renderLength = (path, value) => {
+  passwordLengthOutput.value = value;
+};
+
+const watchedStateLength = onChange(state, renderLength);
+
+range.addEventListener('input', (e) => {
+  watchedStateLength.range.value = e.target.value;
 });
-let useDigits;
-document.querySelector('.checkbox-group__include-numbers-input')
-  .addEventListener('change', (event) => useDigits = event.target.checked);
 
-let useLowerCase;
-document.querySelector('.checkbox-group__include-chars-input-lower')
-  .addEventListener('change', (event) => useLowerCase = event.target.checked);
+const selectionFielsd = document.querySelectorAll('[type="checkbox"]');
 
-let useUpperCase;
+const watchState = onChange(state, (path, value) => console.log(value));
 
-document.querySelector('.checkbox-group__include-chars-input-upper')
-  .addEventListener('change', (event) => useUpperCase = event.target.checked);
-
-let useSymbols;
-document.querySelector('.checkbox-group__include-symbols-input')
-  .addEventListener('change', (event) => useSymbols = event.target.checked);
-
-const func = () => {
-  const pwd = password({
-    pwdLength, useDigits, useLowerCase, useUpperCase, useSymbols,
+generatePasswordButton.addEventListener('click', () => {
+  selectionFielsd.forEach((element) => {
+    watchState.selections[element.name] = element.checked;
   });
-  return pwd.password;
-};
-const input = document.querySelector('.output-form__password');
-const btn = document.querySelector('.generate-password__button');
-const result = () => {
-  input.setAttribute('value', func());
-};
-btn.addEventListener('click', result);
+  state.selections.pwdLength = range.value;
+  const { password } = generator(state.selections);
+  output.value = password;
+});
