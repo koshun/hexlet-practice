@@ -22,5 +22,8 @@
     "sass": "^1.63.3",
     "scss": "^0.2.4",
     "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "on-change": "^4.0.2"
   }
 }
