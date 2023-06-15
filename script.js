@@ -79,3 +79,7 @@ const copyPassword = () => {
   document.execCommand('copy');
 };
 btnCopy.addEventListener('click', copyPassword);
+
+// Как опцию можно добавить генерацию пароля при нажатии/отжатии чекбокса и слайдера
+checkboxes.forEach((checkbox) => checkbox.addEventListener('click', result));
+slider.addEventListener('input', result);
