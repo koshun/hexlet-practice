@@ -35,6 +35,7 @@ const pwdGen = () => {
 
 const input = document.querySelector('.output-form__password');
 const btn = document.querySelector('.generate-password__button');
+const btnRepeat = document.querySelector('.repeat__button');
 const complDiv = document.querySelector('.password-check');
 const complSpan = document.querySelector('.password-check > span');
 const removeClasses = (el, prefix) => el.className.split(' ').filter((cl) => !cl.startsWith(prefix)).join(' ');
@@ -65,4 +66,5 @@ const result = () => {
 };
 result();
 btn.addEventListener('click', result);
+btnRepeat.addEventListener('click', result);
 input.addEventListener('input', changeComplexity);
