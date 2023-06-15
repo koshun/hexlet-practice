@@ -1,5 +1,5 @@
 import onChange from 'on-change';
-import generator from './src/generator.js';
+import generator from './generator.js';
 
 const state = {
   range: {
