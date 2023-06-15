@@ -1,11 +1,12 @@
 import password from './src/generator.js';
+import checkComplexity from './src/testComplexity.js';
 
 const slider = document.querySelector('.password-length__range');
 const lengthField = document.querySelector('.password-length__output');
 
 const checkboxes = document.querySelectorAll('.checkbox');
 const params = {
-  pwdLength: 6
+  pwdLength: 6,
 };
 slider.addEventListener('input', (event) => {
   params.pwdLength = event.target.value;
@@ -34,7 +35,33 @@ const pwdGen = () => {
 
 const input = document.querySelector('.output-form__password');
 const btn = document.querySelector('.generate-password__button');
+const complDiv = document.querySelector('.password-check');
+const complSpan = document.querySelector('.password-check > span');
+const removeClasses = (el, prefix) => el.className.split(' ').filter((cl) => !cl.startsWith(prefix)).join(' ');
+const changeComplexity = () => {
+  const complexity = checkComplexity(input.value);
+  // console.log(complexity);
+  complDiv.className = removeClasses(complDiv, 'password-check_');
+  complSpan.className = removeClasses(complSpan, 'password-check-text');
+  if (complexity < 52) {
+    complDiv.classList.add('password-check_bad');
+    complSpan.classList.add('password-check-text_bad');
+    complSpan.innerHTML = 'Плохой';
+  }
+  if (complexity >= 52 && complexity < 105) {
+    complDiv.classList.add('password-check_good');
+    complSpan.classList.add('password-check-text_good');
+    complSpan.innerHTML = 'Хороший';
+  }
+  if (complexity > 105) {
+    complDiv.classList.add('password-check_protected');
+    complSpan.classList.add('password-check-text_protected');
+    complSpan.innerHTML = 'Надежный';
+  }
+};
 const result = () => {
   input.setAttribute('value', pwdGen());
+  changeComplexity();
 };
 btn.addEventListener('click', result);
+input.addEventListener('input', changeComplexity);
