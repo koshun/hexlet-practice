@@ -33,6 +33,7 @@ const pwdGen = () => {
   return pwd.password;
 };
 
+const btnCopy = document.querySelector('.copy-password__button');
 const input = document.querySelector('.output-form__password');
 const btn = document.querySelector('.generate-password__button');
 const btnRepeat = document.querySelector('.repeat__button');
@@ -68,3 +69,9 @@ result();
 btn.addEventListener('click', result);
 btnRepeat.addEventListener('click', result);
 input.addEventListener('input', changeComplexity);
+
+const copyPassword = () => {
+  input.select();
+  document.execCommand('copy');
+};
+btnCopy.addEventListener('click', copyPassword);
