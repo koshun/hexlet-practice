@@ -6,7 +6,7 @@ const lengthField = document.querySelector('.password-length__output');
 
 const checkboxes = document.querySelectorAll('.checkbox');
 const params = {
-  pwdLength: 6,
+  pwdLength: 10,
 };
 slider.addEventListener('input', (event) => {
   params.pwdLength = event.target.value;
@@ -63,5 +63,6 @@ const result = () => {
   input.setAttribute('value', pwdGen());
   changeComplexity();
 };
+result();
 btn.addEventListener('click', result);
 input.addEventListener('input', changeComplexity);
