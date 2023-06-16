@@ -2,3 +2,5 @@ node_modules
 yarn.lock
 src/.generator.js.swp
 /coverage/
+.Makefile.swp
+.eslintignore
