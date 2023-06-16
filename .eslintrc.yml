@@ -23,4 +23,6 @@ rules:
     - js: always
    no-console: 0
    no-underscore-dangle: [2, { "allow": ["__filename", "__dirname"] }]
+   no-return-assign: 0
+   no-restricted-syntax: 0
    
