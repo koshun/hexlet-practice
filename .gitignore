@@ -3,4 +3,3 @@ yarn.lock
 src/.generator.js.swp
 /coverage/
 .Makefile.swp
-.eslintignore
