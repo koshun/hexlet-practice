@@ -1,26 +1,26 @@
 import sequelize from '../../config/dbConfig.js';
-import User from './user.model.js';
+// import User from './user.model.js';
 import Password from './password.model.js';
-import Collection from './collection.model.js';
+// import Collection from './collection.model.js';
 import generator from '../Hellpers/generatorHelper.js';
 
-const names = [
-  'Anastasia',
-  'Viktor',
-  'Denis',
-  'Konstantin',
-  'Maxim',
-  'Sergey',
-];
+// const names = [
+//   'Anastasia',
+//   'Viktor',
+//   'Denis',
+//   'Konstantin',
+//   'Maxim',
+//   'Sergey',
+// ];
 
-const collections = [
-  'Search Engine',
-  'Social Net',
-  'Video hosting',
-  'Programming',
-  'Internet store',
-  'Encyclopedia',
-];
+// const collections = [
+//   'Search Engine',
+//   'Social Net',
+//   'Video hosting',
+//   'Programming',
+//   'Internet store',
+//   'Encyclopedia',
+// ];
 const services = [
   {
     name: 'Google',
