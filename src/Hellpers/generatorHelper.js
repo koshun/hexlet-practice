@@ -49,10 +49,10 @@ const multyGenerator = (params, num) => {
   }
 };
 
-const testParams = {
-  pwdLength: 10, useDigits: true, useLowerCase: true, useUpperCase: true, useSymbols: false,
-};
+// const testParams = {
+//   pwdLength: 10, useDigits: true, useLowerCase: true, useUpperCase: true, useSymbols: false,
+// };
 
-multyGenerator(testParams, 10);
+// multyGenerator(testParams, 10);
 
 export default generator;
