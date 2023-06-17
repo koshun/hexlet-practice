@@ -43,16 +43,16 @@ const generator = (params) => {
   return { password, complexity };
 };
 
-const multyGenerator = (params, num) => {
-  for (let i = 1; i <= num; i += 1) {
-    console.log(generator(params));
-  }
-};
+// const multyGenerator = (params, num) => {
+//   for (let i = 1; i <= num; i += 1) {
+//     console.log(generator(params));
+//   }
+// };
 
-const testParams = {
-  pwdLength: 10, useDigits: true, useLowerCase: true, useUpperCase: true, useSymbols: false,
-};
+// const testParams = {
+//   pwdLength: 10, useDigits: true, useLowerCase: true, useUpperCase: true, useSymbols: false,
+// };
 
-multyGenerator(testParams, 10);
+// multyGenerator(testParams, 10);
 
 export default generator;
