@@ -1,0 +1,22 @@
+[class*="registration__input"],
+[class*="login__input"] {
+	box-sizing: border-box;
+	padding: 10px 20px;
+	display: block;
+	font-size: 17px;
+	width: 30%;
+	background: white;
+	margin: 20px auto;
+	border: 1px solid #0A6AF9;
+	border-radius: 25px;
+	height: 50px;
+}
+
+::placeholder {
+	opacity: 50%;
+}
+
+input:focus {
+	border: 2px solid #0A6AF9;
+	outline: #0A6AF9;
+}

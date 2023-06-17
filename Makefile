@@ -12,3 +12,5 @@ lint-fix:
 
 test-coverage:
 	NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
+run:
+	npm run devstart
