@@ -1,3 +1,3 @@
 export default (req, res) => {
-  res.render('layouts/layout');
+  res.render('main', { pageTitle: 'Создайте свой уникальный пароль' });
 };
