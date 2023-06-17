@@ -19,7 +19,6 @@ const Password = sequelize.define('password', {
   },
   svcLink: {
     type: DataTypes.STRING,
-    isUrl: true,
   },
 });
 
