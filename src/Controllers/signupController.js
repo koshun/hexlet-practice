@@ -1,3 +1,3 @@
 export default (req, res) => {
-  res.send('<h1>Registration</h1>');
+  res.render('registration', { pageTitle: 'Регистрация', layout: 'login' });
 };
