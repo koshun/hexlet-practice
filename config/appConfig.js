@@ -32,7 +32,7 @@ export default () => {
   app.use(session({
     secret: 'theremustBeASecret',
     saveUninitialized: true,
-    resave: false,
+    resave: true,
     cookie: { maxAge: 60000 },
   }));
   app.use(passport.session());
