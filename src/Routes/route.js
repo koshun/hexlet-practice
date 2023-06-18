@@ -25,7 +25,7 @@ export default (app) => {
   app.get('/signup', index);
   app.post('/singup', store);
   app.get('/dashboart', (req, res) => {
-    res.send(`<h1>Hello dashboard ${JSON.stringify(req.cookie)}</h1>`);
+    res.send(`<h1>Hello dashboard ${JSON.stringify(req.user)}</h1>`);
   });
   app.get('/', userController);
 };

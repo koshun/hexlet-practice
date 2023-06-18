@@ -17,20 +17,13 @@ export default (passport) => {
       return done(null, user);
     }),
   );
-  passport.serializeUser((user, done) => {
-    done(null, { id: user.id, login: user.login });
-    // process.nextTick(() => {
-    //   done(null, { id: user.id, username: user.login });
-    // });
+  passport.serializeUser((user, cb) => {
+    process.nextTick(() => cb(null, {
+      id: user.id,
+      login: user.login,
+    }));
   });
-  passport.deserializeUser((id, done) => {
-    User.findByPk(id).then((user) => {
-      if (user) {
-        done(null, user.get());
-      } else {
-        done(user.errors, null);
-      }
-    });
-    // process.nextTick(() => done(null, user));
+  passport.deserializeUser((user, cb) => {
+    process.nextTick(() => cb(null, user));
   });
 };

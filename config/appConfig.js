@@ -28,9 +28,8 @@ export default () => {
   app.use(session({
     secret: 'theremustBeASecret', saveUninitialized: true, resave: false, cookie: { maxAge: 60000 },
   }));
+  app.use(passport.session());
   app.use(flash());
   app.use(passport.initialize());
-  app.use(passport.session());
-  app.use(passport.authenticate('session'));
   return app;
 };
