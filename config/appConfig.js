@@ -13,6 +13,7 @@ export default () => {
   const __filename = fileURLToPath(import.meta.url);
   const __dirname = dirname(__filename);
   const app = express();
+  // Template
   app.engine('hbs', handlebars.engine({
     layoutsDir: join(__dirname, '/../src/Views/layouts'),
     defaultLayout: 'layout',
@@ -21,15 +22,22 @@ export default () => {
   }));
   app.set('views', join(__dirname, '/../src/Views')); // './src/Views'
   app.set('view engine', 'hbs');
+  // decode url
   app.use(express.urlencoded({ extended: true }));
   app.use(express.json());
+  // static folder
   app.use(express.static(join(__dirname, '/../public')));
+  // cookie and session
   app.use(cookieParser('theremustBeASecret'));
   app.use(session({
-    secret: 'theremustBeASecret', saveUninitialized: true, resave: false, cookie: { maxAge: 60000 },
+    secret: 'theremustBeASecret',
+    saveUninitialized: true,
+    resave: false,
+    cookie: { maxAge: 60000 },
   }));
   app.use(passport.session());
   app.use(flash());
+  // passport
   app.use(passport.initialize());
   return app;
 };
