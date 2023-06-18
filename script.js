@@ -51,7 +51,7 @@ const changeComplexity = () => {
     complSpan.classList.add('password-check-text_bad');
     complSpan.innerHTML = 'Плохой';
   }
-  if (complexity >= 52 && complexity < 105) {
+  if (complexity >= 52 && complexity <= 105) {
     complDiv.classList.add('password-check_good');
     complSpan.classList.add('password-check-text_good');
     complSpan.innerHTML = 'Хороший';
