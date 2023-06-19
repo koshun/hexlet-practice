@@ -1,6 +1,11 @@
       <form action="/login" class="form flex" method="post">
       {{#if success}}
-          {{success}}
+          <p class="success">{{success}}</p>
+      {{/if}}
+    {{# if errors }}
+        {{# each errors }}
+        <p class="error">{{ this.msg }} / {{this.path}}/{{this.type}}</p>
+        {{/each}}
       {{/if}}
         <h2 class="form__header">Вход</h2>
         <input type="text" name="email" class="form__email" placeholder="Email" aria-label="Email">

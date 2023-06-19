@@ -8,7 +8,7 @@ const Password = sequelize.define('password', {
   },
   collectionId: {
     type: DataTypes.INTEGER,
-    allowNull: false,
+    allowNull: true,
   },
   svcPassword: {
     type: DataTypes.STRING,
