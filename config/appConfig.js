@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
+import bodyParser from 'body-parser';
 import flash from 'connect-flash';
 import handlebars from 'express-handlebars';
 import { join, dirname } from 'path';
@@ -23,8 +24,8 @@ export default () => {
   app.set('views', join(__dirname, '/../src/Views')); // './src/Views'
   app.set('view engine', 'hbs');
   // decode url
-  app.use(express.urlencoded({ extended: true }));
-  app.use(express.json());
+  app.use(bodyParser.urlencoded({ extended: true }));
+  app.use(bodyParser.json());
   // static folder
   app.use(express.static(join(__dirname, '/../public')));
   // cookie and session
@@ -32,8 +33,8 @@ export default () => {
   app.use(session({
     secret: 'theremustBeASecret',
     saveUninitialized: true,
-    resave: true,
-    cookie: { maxAge: 60000 },
+    resave: false,
+    cookie: { maxAge: 7300000 },
   }));
   app.use(passport.session());
   app.use(flash());

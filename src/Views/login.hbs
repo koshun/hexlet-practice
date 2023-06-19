@@ -1,5 +1,7 @@
       <form action="/login" class="form flex" method="post">
-      {{>messages}}
+      {{#if success}}
+          {{success}}
+      {{/if}}
         <h2 class="form__header">Вход</h2>
         <input type="text" name="email" class="form__email" placeholder="Email" aria-label="Email">
         <input type="password" placeholder="Send your password here" name="password" id="password" class="form__password"  aria-label="Password">
