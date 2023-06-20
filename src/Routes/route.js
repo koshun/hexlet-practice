@@ -1,5 +1,5 @@
 import passport from 'passport';
-import { body, checkSchema, validationResult } from 'express-validator';
+import { body, validationResult } from 'express-validator';
 import loginController from '../Controllers/loginController.js';
 import { index, store } from '../Controllers/signupController.js';
 import userController from '../Controllers/userController.js';
@@ -7,6 +7,7 @@ import logoutController from '../Controllers/logoutController.js';
 import strategyPassport from '../../config/passport.js';
 import authMiddleWare from '../MiddleWare/authMiddleWare.js';
 import validate from '../validators/registrationValidator.js';
+import dashboartController from '../Controllers/dashboartController.js';
 
 export default (app) => {
   strategyPassport(passport);
@@ -24,9 +25,7 @@ export default (app) => {
     body('password').isLength({ min: 6 }).withMessage('password min 6 signs'),
     body('login').notEmpty().isAlpha().withMessage('Login is required'),
   ], validationResult), store);
-  app.get('/dashboart/user/:id', (req, res) => {
-    res.send(`<h1>Hello dashboard ${req.params.id} ${req.user.login}</h1> <br> <a href="/">Main</a> <br> <a href="/logout">LogOut</a>`);
-  });
+  app.get('/dashboart/user/:id', dashboartController);
   app.get('/', userController);
   app.get('/logout', logoutController);
 
@@ -35,6 +34,6 @@ export default (app) => {
   // 404 route
   // The 404 Route (ALWAYS Keep this as the last route)
   app.get('*', (req, res) => {
-    res.send('Page not found. Error code 404', 404);
+    res.status(404).send('Page not found. Error code 404');
   });
 };

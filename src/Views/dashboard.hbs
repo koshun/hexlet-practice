@@ -1,0 +1,33 @@
+      {{>d_left_section}}
+<section class="column right">
+        <div class="column add_button"><a href="#" class="button is-info">Add new +</a></div>
+        <div class="table-container">
+          <table class="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th>Item name</th>
+                <th>Login</th>
+                <th>Collection</th>
+                <th>WebSite Link</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#if data}}
+              {{#each data}}
+              <tr>
+                <td>{{description}}</td>
+                <td>{{user.login}}</td>
+                <td>{{ name }}</td>
+                <td><a href="{{svcLink}}" class="table_link" target="_blank">{{description}}</a></td>
+                <td><img src="/assets/img/ellipsis-solid 1.svg" alt=""></td>
+              </tr>
+              {{/each}}
+            {{else}}
+            <p>Not to show</p>
+            {{/if}}
+             
+            </tbody>
+          </table>
+        </div>
+</section>

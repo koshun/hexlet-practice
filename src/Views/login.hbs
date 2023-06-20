@@ -2,9 +2,9 @@
       {{#if success}}
           <p class="success">{{success}}</p>
       {{/if}}
-    {{# if errors }}
-        {{# each errors }}
-        <p class="error">{{ this.msg }} / {{this.path}}/{{this.type}}</p>
+    {{#if errors }}
+        {{#each errors }}
+        <p class="error">{{ this.msg }}</p>
         {{/each}}
       {{/if}}
         <h2 class="form__header">Вход</h2>
