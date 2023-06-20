@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+	<link rel="stylesheet" href="assets/styles/components/dashboard.css">
+
+</head>
+
+<body>
+  
+	<div class="wrapper">
+
+		<header class="header">
+		  
+			<div class="logo">
+				<a href="/" class="logo__link">
+					<img src="assets/img/logo-icon.svg" alt="" class="logo__icon">
+					<span class="logo__text">I want to keep your secret</span>
+				</a>
+			</div>
+			
+			<h2 class="title">Dashboard</h2>
+
+			<!-- По клику открывается модальное окно -->
+			<div class="personal">
+				<button class="personal-info-button">
+					<i class="fa-solid fa-user entry__registration-icon"></i>
+					<span class="personal__user-name user-name">Имя Фамилия</span>
+				</button>
+			</div>
+
+		</header>
+			
+		<div class="main">
+		
+			<!-- Поделил main на две части. В левой три элемента рядом с таблицей -->
+			<div class="main__left-side left-side">
+				<div class="main__left-side-container">
+					<p class="left-side__login"><i class="fa fa-lock" aria-hidden="true"></i> logins</p>
+					<p class="left-side__personal-info "><i class="fa-solid fa-user entry__registration-icon"></i> personal info</p>
+					<p class="left-side__collections">Collections <span>+</span></p>
+				</div>
+			</div>
+			
+			<!-- Центральная часть состоит из кнопки и таблици под ней -->
+			<div class="main__center">
+
+				<button  class="add-new-button">Add new +</button>
+		
+				<!-- Таблица с паролями -->
+				<table class="main__dashboard-table dashboard-table">
+					<tr>
+						<th>Item Name</th>
+						<th>User Name</th>
+						<th>Collection</th>
+						<th>Web Site Link</th>
+						<th></th>
+					</tr>
+					
+					<tr>
+						<td>YouTube</td>
+						<td>Vasya</td>
+						<td>Advertisement</td>
+						<td class="link-color_blue">youtube.com</td>
+						<td>###</td>
+					</tr>
+
+					<tr>
+						<td>Instagram</td>
+						<td>Vasya</td>
+						<td>Advertisement</td>
+						<td class="link-color_blue">instagram.com</td>
+						<td>###</td>
+					</tr>
+		
+				</table>
+		
+			</div>
+		
+		</div>
+		
+		<footer class="footer">
+			<span class="footer__text">© AbraCodeAbra.com. Все права защищены. 2023</span>
+		</footer>
+		
+		<!-- По клику на логин в правом верхнем углу
+		появляется это модальное окно -->
+		<div class="modal-personal">
+			<table class="modal-personal__table">
+
+				<!-- В таблице три части с данными пользователя -->
+				<caption class="modal-personal__user-name user-name">Vasya Pupkin</caption>
+
+				<!-- Заголовок -->
+				<tr class="modal-personal__login-row row-height">
+					<th>Login</th>
+			  	</tr>
+
+			  	<tr>
+					<!-- Сами данные -->
+					<td class="user-name">Vasya Pupkin</td>
+					<!-- Кнопка-иконка которая должна как-то поменять -->
+					<td>
+						<button class="user-name__change-button">
+							<img src="assets/img/change-icon.svg" alt="">
+						</button>
+					</td>
+			  	</tr>
+
+			  	<tr class="modal-personal__email-row row-height">
+					<th>Email</th>
+			  	</tr>
+
+			  	<tr>
+					<td class="user-mail">Vasya Pupkin@gmail.com</td>
+					<td>
+						<button class="user-mail__change-button">
+							<img src="assets/img/change-icon.svg" alt="">
+						</button>
+					</td>
+			  	</tr>
+
+			  	<tr class="modal-personal__password-row row-height">
+					<th>Password</th> 
+			  	</tr>
+
+				<tr>
+					<td class="user-password">*************</td>
+					<td>
+						<button class="user-password__change-button">
+							<img src="assets/img/change-icon.svg" alt="">
+						</button>
+					</td>
+			  	</tr>
+
+			</table>
+
+			<!-- Кнопка подтверждающая изменения в данных -->
+			<button class="modal-personal__change-button">
+				Обновить
+			</button>
+
+		</div>
+
+	</div>
+
+	<!-- Не знал куда убрать обработчик событий,
+	создал файл modal-personal.js -->
+	<script src="./modal-personal.js"></script>
+</body>
+
+</html>
