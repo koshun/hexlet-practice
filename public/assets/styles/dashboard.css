@@ -60,8 +60,16 @@ body, html {
   margin-left: 22px;
   font-weight: 700;
 }
+.left_menu-link:last-child {
+  margin-left: 0;
+}
 .add_button {
   margin-bottom: 42px;
+  justify-content: center;
+}
+.add_button_link {
+  width: 25em;
+  height: 2.7em;
 }
 .table {
   background-color: #fff9f5;

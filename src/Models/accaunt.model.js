@@ -1,7 +1,7 @@
 import { DataTypes } from 'sequelize';
 import sequelize from '../../config/dbConfig.js';
 
-const Password = sequelize.define('password', {
+const Accaunt = sequelize.define('password', {
   userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -9,6 +9,10 @@ const Password = sequelize.define('password', {
   collectionId: {
     type: DataTypes.INTEGER,
     allowNull: true,
+  },
+  username: {
+    type: DataTypes.STRING,
+    allowNull: false,
   },
   svcPassword: {
     type: DataTypes.STRING,
@@ -22,4 +26,4 @@ const Password = sequelize.define('password', {
   },
 });
 
-export default Password;
+export default Accaunt;

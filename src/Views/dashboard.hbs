@@ -1,6 +1,6 @@
       {{>d_left_section}}
 <section class="column right">
-        <div class="column add_button"><a href="#" class="button is-info">Add new +</a></div>
+        <div class="column add_button"><a href="/dashboart/user/{{ user.id }}/add" class="button is-info">Add new +</a></div>
         <div class="table-container">
           <table class="table is-striped is-fullwidth">
             <thead>
@@ -17,8 +17,8 @@
               {{#each data}}
               <tr>
                 <td>{{description}}</td>
-                <td>{{user.login}}</td>
-                <td>{{ name }}</td>
+                <td>{{username}}</td>
+                <td>{{ collections }}</td>
                 <td><a href="{{svcLink}}" class="table_link" target="_blank">{{description}}</a></td>
                 <td><img src="/assets/img/ellipsis-solid 1.svg" alt=""></td>
               </tr>
