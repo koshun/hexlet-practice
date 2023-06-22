@@ -6,25 +6,30 @@ const email = document.querySelector('.registration__input-email');
 const password = document.querySelector('.registration__input-password');
 
 const loginSchema = string()
-  .min(8, { field: 'login', message: 'Login too short' });
+  .min(8, { field: 'login', message: 'Login должен быть не менее 8 символов' });
   // .required({ field: 'login', message: 'Login is required' });
 const emailSchema = string()
-  .email({ field: 'email', message: 'Incorrect email' })
-  .required({ field: 'email', message: 'Email is required' });
+  .email({ field: 'email', message: 'Некорректный email' })
+  .required({ field: 'email', message: 'Email обязательное поле' });
 const passwordSchema = string()
-  .min(8, { field: 'password', message: 'Password too short' })
-  .matches(/\d+/, { message: { field: 'password', message: 'Password no number' } })
-  .matches(/[a-z]+/, { message: { field: 'password', message: 'Password no lowercase' } })
-  .matches(/[A-Z]+/, { message: { field: 'password', message: 'Password no uppercase' } })
+  .min(8, { field: 'password', message: 'Пароль должен быть не менее 8 символов' })
+  .matches(/\d+/, { message: { field: 'password', message: 'Пароль должен содержать цифры' } })
+  .matches(/[a-z]+/, { message: { field: 'password', message: 'Пароль должен содержать маленькие буквы' } })
+  .matches(/[A-Z]+/, { message: { field: 'password', message: 'Пароль должен содержать большие буквы' } })
+  .test(
+    'Password has russian letters',
+    { field: 'password', message: 'Пароль содержит русские буквы' },
+    (value) => !/[а-яё]|[А-ЯЁ]/.test(value),
+  )
   .test(
     'Password has spaces',
-    { field: 'password', message: 'Password has spaces' },
+    { field: 'password', message: 'Пароль содержит пробел' },
     (value) => !/\s+/.test(value),
   );
 
-login.onblur = () => validate(loginSchema, login.value);
-email.onblur = () => validate(emailSchema, email.value);
-password.onblur = () => validate(passwordSchema, password.value);
-login.onfocus = () => removeErrors('login');
-email.onfocus = () => removeErrors('email');
-password.onfocus = () => removeErrors('password');
+login.onblur = () => validate(loginSchema, login);
+email.onblur = () => validate(emailSchema, email);
+password.onblur = () => validate(passwordSchema, password);
+login.onfocus = () => removeErrors(login);
+email.onfocus = () => removeErrors(email);
+password.onfocus = () => removeErrors(password);

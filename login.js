@@ -5,20 +5,21 @@ const email = document.querySelector('.login__input-email');
 const password = document.querySelector('.login__input-password');
 
 const emailSchema = string()
-  .email({ field: 'email', message: 'Incorrect email' })
-  .required({ field: 'email', message: 'Email is required' });
+  .email({ field: 'email', message: 'Некорректный email' })
+  .required({ field: 'email', message: 'Email обязательное поле' });
 const passwordSchema = string()
-  .min(8, { field: 'password', message: 'Password too short' })
-  .matches(/\d+/, { message: { field: 'password', message: 'Password no number' } })
-  .matches(/[a-z]+/, { message: { field: 'password', message: 'Password no lowercase' } })
-  .matches(/[A-Z]+/, { message: { field: 'password', message: 'Password no uppercase' } })
+  .test(
+    'Password has russian letters',
+    { field: 'password', message: 'Пароль содержит русские буквы' },
+    (value) => !/[а-яё]|[А-ЯЁ]/.test(value),
+  )
   .test(
     'Password has spaces',
-    { field: 'password', message: 'Password has spaces' },
+    { field: 'password', message: 'Пароль содержит пробел' },
     (value) => !/\s+/.test(value),
   );
 
-email.onblur = () => validate(emailSchema, email.value);
-password.onblur = () => validate(passwordSchema, password.value);
-email.onfocus = () => removeErrors('email');
-password.onfocus = () => removeErrors('password');
+email.onblur = () => validate(emailSchema, email);
+password.onblur = () => validate(passwordSchema, password);
+email.onfocus = () => removeErrors(email);
+password.onfocus = () => removeErrors(password);
