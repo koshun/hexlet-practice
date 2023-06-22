@@ -8,7 +8,7 @@ import strategyPassport from '../../config/passport.js';
 import authMiddleWare from '../MiddleWare/authMiddleWare.js';
 import validate from '../validators/registrationValidator.js';
 import dashboartController from '../Controllers/dashboartController.js';
-import {index as dashboardIndex, store as dashboardStore } from '../Controllers/adddashboardController.js';
+import { index as dashboardIndex, store as dashboardStore } from '../Controllers/adddashboardController.js';
 import { index as collectionIndex, store as collectionStore } from '../Controllers/collectionController.js';
 
 export default (app) => {
