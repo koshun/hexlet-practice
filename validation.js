@@ -14,6 +14,7 @@ function createErrors(err, input) {
 }
 
 const validate = async (schema, input) => {
+  removeErrors(input);
   try {
     await schema.validate(input.value, { abortEarly: false });
   } catch ({ errors }) {

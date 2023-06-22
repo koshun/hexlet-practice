@@ -8,6 +8,7 @@ const emailSchema = string()
   .email({ field: 'email', message: 'Некорректный email' })
   .required({ field: 'email', message: 'Email обязательное поле' });
 const passwordSchema = string()
+  .required({ field: 'password', message: 'Пароль обязательное поле' })
   .test(
     'Password has russian letters',
     { field: 'password', message: 'Пароль содержит русские буквы' },
@@ -19,7 +20,5 @@ const passwordSchema = string()
     (value) => !/\s+/.test(value),
   );
 
-email.onblur = () => validate(emailSchema, email);
-password.onblur = () => validate(passwordSchema, password);
-email.onfocus = () => removeErrors(email);
-password.onfocus = () => removeErrors(password);
+email.oninput = () => validate(emailSchema, email);
+password.oninput = () => validate(passwordSchema, password);

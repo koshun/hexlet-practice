@@ -13,6 +13,7 @@ const emailSchema = string()
   .required({ field: 'email', message: 'Email обязательное поле' });
 const passwordSchema = string()
   .min(8, { field: 'password', message: 'Пароль должен быть не менее 8 символов' })
+  .required({ field: 'password', message: 'Пароль обязательное поле' })
   .matches(/\d+/, { message: { field: 'password', message: 'Пароль должен содержать цифры' } })
   .matches(/[a-z]+/, { message: { field: 'password', message: 'Пароль должен содержать маленькие буквы' } })
   .matches(/[A-Z]+/, { message: { field: 'password', message: 'Пароль должен содержать большие буквы' } })
@@ -27,9 +28,6 @@ const passwordSchema = string()
     (value) => !/\s+/.test(value),
   );
 
-login.onblur = () => validate(loginSchema, login);
-email.onblur = () => validate(emailSchema, email);
-password.onblur = () => validate(passwordSchema, password);
-login.onfocus = () => removeErrors(login);
-email.onfocus = () => removeErrors(email);
-password.onfocus = () => removeErrors(password);
+login.oninput = () => validate(loginSchema, login);
+email.oninput = () => validate(emailSchema, email);
+password.oninput = () => validate(passwordSchema, password);
