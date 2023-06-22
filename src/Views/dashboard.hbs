@@ -16,10 +16,10 @@
               {{#if data}}
               {{#each data}}
               <tr>
-                <td>{{description}}</td>
-                <td>{{username}}</td>
+                <td>{{dataValues.description}}</td>
+                <td>{{dataValues.username}}</td>
                 <td>{{ collections }}</td>
-                <td><a href="{{svcLink}}" class="table_link" target="_blank">{{description}}</a></td>
+                <td><a href="{{dataValues.svcLink}}" class="table_link" target="_blank">{{dataValues.description}}</a></td>
                 <td><img src="/assets/img/ellipsis-solid 1.svg" alt=""></td>
               </tr>
               {{/each}}
