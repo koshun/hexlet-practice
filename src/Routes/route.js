@@ -8,7 +8,8 @@ import strategyPassport from '../../config/passport.js';
 import authMiddleWare from '../MiddleWare/authMiddleWare.js';
 import validate from '../validators/registrationValidator.js';
 import dashboartController from '../Controllers/dashboartController.js';
-import adddashboardController from '../Controllers/adddashboardController.js';
+import {index as dashboardIndex, store as dashboardStore } from '../Controllers/adddashboardController.js';
+import { index as collectionIndex, store as collectionStore } from '../Controllers/collectionController.js';
 
 export default (app) => {
   strategyPassport(passport);
@@ -29,9 +30,12 @@ export default (app) => {
   app.get('/dashboart/user/:id', dashboartController);
   app.get('/', userController);
   app.get('/logout', logoutController);
-  app.get('/dashboart/user/:id/add', (req, res) => res.render('dashboard_add', { pageTitle: 'Add site info', user: req.user, layout: 'dashboart'})); // need to change to controller where will be request to db to find collection items
-  app.post('/dashboart/user/:id/add', adddashboardController);
-  app.get('/dashboart/user/:id/collections/add', (req, res) => res.send('this is collection form'));
+  app.route('/dashboart/user/:id/add')
+    .get(dashboardIndex)
+    .post(dashboardStore);
+  app.route('/dashboart/user/:id/collections/add')
+    .get(collectionIndex)
+    .post(collectionStore);
   // protext middleware//
   app.all('/dashboart', authMiddleWare);
   app.all('/dashboart/*', authMiddleWare);

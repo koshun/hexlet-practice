@@ -19,13 +19,15 @@ Accaunt.belongsTo(Collection);
 
 const index = async (req, res) => {
   try {
-    const accaunt = await Accaunt.findAll({ where: { userId: req.params.id } });
+    const accaunt = await Accaunt.findAll({
+      where:
+      { userId: req.params.id },
+      include: Collection,
+    });
     // console.log(JSON.stringify(accaunt, null, 2));
-    // const collections = accaunt.getCollection() ? accaunt.getCollection() : '';
     if (accaunt) {
       res.render('dashboard', {
         data: accaunt,
-        // collections,
         title: 'Dashboard',
         pageTitle: 'Dashboard',
         user: req.user,
