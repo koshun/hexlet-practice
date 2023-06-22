@@ -1,31 +1,43 @@
 import passport from 'passport';
+import { body, validationResult } from 'express-validator';
 import loginController from '../Controllers/loginController.js';
 import { index, store } from '../Controllers/signupController.js';
 import userController from '../Controllers/userController.js';
+import logoutController from '../Controllers/logoutController.js';
 import strategyPassport from '../../config/passport.js';
+import authMiddleWare from '../MiddleWare/authMiddleWare.js';
+import validate from '../validators/registrationValidator.js';
+import dashboartController from '../Controllers/dashboartController.js';
+import adddashboardController from '../Controllers/adddashboardController.js';
 
 export default (app) => {
-  // userRouter.get('/login', loginController);
-  // userRouter.get('signup', singupController);
-  // app.use('/user', userRouter);
   strategyPassport(passport);
-  app.get('/login', loginController);
-  app.post('/login', async (req, res, next) => {
-    try {
-      passport.authenticate('local', {
-        successRedirect: '/dashboart',
-        failureRedirect: '/login',
-        badRequestMessage: 'The email does not exist',
-        failureFlash: true,
-      })(req, res, next);
-    } catch (error) {
-      res.status(400).send();
-    }
-  });
+  app.route('/login')
+    .get(loginController)
+    .post(
+      passport.authenticate('local', { failureRedirect: '/login' }),
+      (req, res) => {
+        res.redirect(`/dashboart/user/${req.user.id}`);
+      },
+    );
   app.get('/signup', index);
-  app.post('/singup', store);
-  app.get('/dashboart', (req, res) => {
-    res.send(`<h1>Hello dashboard ${JSON.stringify(req.user)}</h1> <br> <a href="/">Main</a>`);
-  });
+  app.post('/singup', validate([
+    body('email').isEmail().normalizeEmail().withMessage('Email must be valid e-mail string'),
+    body('password').isLength({ min: 6 }).withMessage('password min 6 signs'),
+    body('login').notEmpty().isAlpha().withMessage('Login is required'),
+  ], validationResult), store);
+  app.get('/dashboart/user/:id', dashboartController);
   app.get('/', userController);
+  app.get('/logout', logoutController);
+  app.get('/dashboart/user/:id/add', (req, res) => res.render('dashboard_add', { pageTitle: 'Add site info', user: req.user, layout: 'dashboart'})); // need to change to controller where will be request to db to find collection items
+  app.post('/dashboart/user/:id/add', adddashboardController);
+  app.get('/dashboart/user/:id/collections/add', (req, res) => res.send('this is collection form'));
+  // protext middleware//
+  app.all('/dashboart', authMiddleWare);
+  app.all('/dashboart/*', authMiddleWare);
+  // 404 route
+  // The 404 Route (ALWAYS Keep this as the last route)
+  app.get('*', (req, res) => {
+    res.status(404).send('Page not found. Error code 404');
+  });
 };
