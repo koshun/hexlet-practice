@@ -32,3 +32,4 @@ const decrypt = (data) => {
 //   console.log(encData);
 //   console.log(decrypt(encData));
 // }
+export { encrypt, decrypt };
