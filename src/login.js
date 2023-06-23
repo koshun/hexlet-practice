@@ -1,5 +1,5 @@
 import { string } from 'yup';
-import { validate, removeErrors } from './validation.js';
+import { validate } from './validation.js';
 
 const email = document.querySelector('.login__input-email');
 const password = document.querySelector('.login__input-password');
