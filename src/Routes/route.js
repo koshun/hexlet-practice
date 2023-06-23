@@ -5,7 +5,7 @@ import { index, store } from '../Controllers/signupController.js';
 import userController from '../Controllers/userController.js';
 import logoutController from '../Controllers/logoutController.js';
 import strategyPassport from '../../config/passport.js';
-import authMiddleWare from '../MiddleWare/authMiddleWare.js';
+// import authMiddleWare from '../MiddleWare/authMiddleWare.js';
 import validate from '../validators/registrationValidator.js';
 import dashboartController from '../Controllers/dashboartController.js';
 import { index as dashboardIndex, store as dashboardStore } from '../Controllers/adddashboardController.js';
@@ -27,8 +27,8 @@ export default (app) => {
     body('password').isLength({ min: 6 }).withMessage('password min 6 signs'),
     body('login').notEmpty().isAlpha().withMessage('Login is required'),
   ], validationResult), store);
-  app.get('/dashboart/user/:id', dashboartController);
   app.get('/', userController);
+  app.get('/dashboart/user/:id', dashboartController);
   app.get('/logout', logoutController);
   app.route('/dashboart/user/:id/add')
     .get(dashboardIndex)
@@ -36,10 +36,6 @@ export default (app) => {
   app.route('/dashboart/user/:id/collections/add')
     .get(collectionIndex)
     .post(collectionStore);
-  // protext middleware//
-  app.all('/dashboart', authMiddleWare);
-  app.all('/dashboart/*', authMiddleWare);
-  // 404 route
   // The 404 Route (ALWAYS Keep this as the last route)
   app.get('*', (req, res) => {
     res.status(404).send('Page not found. Error code 404');

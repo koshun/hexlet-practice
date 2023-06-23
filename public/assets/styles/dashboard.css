@@ -93,3 +93,4 @@ td>img {
   font-weight: bold;
   padding-bottom: 44px;
 }
+.error{background-color: hsl(348, 100%, 61%);padding: 1em;color:hsl(347, 90%, 96%); border-radius: 0.5em; margin-bottom: 1.75em; text-align: center;}

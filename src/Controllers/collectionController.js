@@ -5,6 +5,7 @@ export const index = (request, response) => {
     layout: 'dashboart',
     pageTitle: 'Add new Collection',
     user: request.user,
+    error: request.flash('error'),
   });
 };
 
@@ -13,11 +14,13 @@ export const store = async (request, response) => {
   const data = {
     name: collection,
   };
-  const newCollection = await Collection.create(data);
-  if (newCollection) {
-    response.redirect('/');
-  } else {
+  try {
+    const newCollection = await Collection.create(data);
+    console.log(newCollection);
+    response.redirect(`/dashboart/user/${request.user.id}`);
+  } catch (e) {
+    request.flash('error', 'That collection is already exist');
     response.redirect(`/dashboart/user/${request.user.id}/collections/add`);
-    console.error('Somethint');
+    console.error('Somethint', e.message);
   }
 };

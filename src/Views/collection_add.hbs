@@ -1,5 +1,8 @@
        {{>d_left_section}}
        <section class="column right">
+        {{#if error}}
+          <p class="error">{{error}}</p>
+        {{/if}}
         <form action="/dashboart/user/{{user.id}}/collections/add" method="post">
         <div class="field">
           <label class="label">Collection name</label>
