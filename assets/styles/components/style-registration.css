@@ -2,6 +2,8 @@
 @import url('./text-registration.css');
 @import url('./button-registration.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+
 
 body {
     background-color: #FFF9F5;
@@ -40,7 +42,7 @@ body {
 
 .entry {
     flex-direction: row;
-    /* align-items: flex-start; */
+    align-items: baseline;
     margin-top: 20px;
     flex: 1 1 0;
     width: 0;
@@ -53,9 +55,7 @@ body {
     margin: 0 5px;
 }
 
-.logo__img {
-    width: 30%;
-    height: auto;
+.logo__icon {
     margin-left: 30px;
 }
 
@@ -63,7 +63,8 @@ body {
     height: 75%;
 }
 
-.registration, .login {
+.registration,
+.login {
     flex-direction: column;
     align-items: center;
 }

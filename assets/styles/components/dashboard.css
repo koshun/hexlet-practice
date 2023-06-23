@@ -1,0 +1,264 @@
+body {
+	padding: 44px 80px;
+  	font-family: 'Nunito', sans-serif;
+	font-size: 22px;
+	font-weight: 700;
+  	line-height: 30px;
+	letter-spacing: 0em;
+	color: #171717;
+	background-color: #FFF9F5;
+
+	margin: 0;
+	box-sizing: border-box;
+	/* overflow: hidden; */
+}
+
+i {
+	margin: 0 5px;
+}
+
+.title,
+.personal,
+.main,
+.button-div,
+.footer {
+	display: flex;
+	justify-content: center;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	
+	height: 100vh;
+	margin: 0 auto;
+	
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	flex-grow: 10;
+	height: 250px;
+}
+
+.logo {
+	height: 150px;
+}
+
+.logo__link {
+	display: flex;
+	text-decoration: none;
+}
+
+.logo__icon {
+	display: block;
+}
+
+.logo__text {
+	width: 150px;
+	margin: auto;
+	font-weight: 700;
+	font-size: 22px;
+	line-height: 30px;
+	color: #171717;
+}
+
+.title {
+	width: 45%;
+	margin-top: 44px;
+	font-size: 44px;
+	line-height: 60px;
+}
+
+.personal {
+	flex-direction: row;
+	align-items: baseline;
+	margin-top: 20px;
+	width: 25%;
+/* background-color: red; */
+
+}
+
+.personal-info-button,
+.personal-info-button:active {
+	background: #FFF9F5;
+	cursor: pointer;
+	border: none;
+	outline: none;
+}
+
+.personal__user-name,
+i {
+	font-family: 'Nunito', sans-serif;
+	font-size: 22px;
+	font-weight: 400;
+	line-height: 30px;
+	letter-spacing: 0em;
+}
+  
+.main {
+	max-width: 2500px;
+  	box-sizing: border-box;
+	flex-grow: 70;
+}
+  
+.main__left-side {
+	min-width: 200px;
+	margin-right: 20px;
+	text-align: left;
+}
+
+.left-side__login {
+	margin-top: 5px;
+}
+  
+.left-side__personal-info {
+	margin-top: 48px;
+}
+
+.left-side__collections {
+	margin-top: 120px;
+}
+  
+.main__center {
+	width: 84%;
+} 
+
+
+.add-new-button {
+	width: 142px;
+	height: 40px; 
+	margin-bottom: 42px;
+	padding-left: 10px;
+	text-align: left;
+	font-size: 18px;
+	font-weight: 700;
+	color: #EFEFEF;
+	background: #0A40FF;
+	border: 1px solid #0A40FF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+}
+	
+.add-new-button:active {
+	background-color: #031f83;
+	transform: translateY(1px);
+	filter: saturate(150%);
+}
+  
+.main__dashboard-table {
+	width: 100%;
+	min-height: 100px;
+	margin-right: 100px;
+	padding-right: 70px;
+}
+
+.dashboard-table {
+	border-collapse: collapse;
+}
+  
+.dashboard-table tr {
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+.dashboard-table th {
+	height: 70px;
+	vertical-align: top;
+}
+  
+.dashboard-table th:first-child,
+.dashboard-table td:first-child {
+	padding-left: 30px;
+  	text-align: center;
+}
+
+.link-color_blue {
+	color: #0A6AF9;
+}
+
+.footer {
+	  display: flex;
+	  justify-content: center;
+	  flex-grow: 15;
+}
+
+.modal-personal {
+	position: fixed;
+	top: 20px;
+	right: 90px;
+	height: 500px;
+	margin-top: 100px;
+	padding: 30px;
+	visibility: hidden;
+	background-color: #F7F6F6;
+}
+
+.modal-personal__table {
+	width: 370px;
+	border-collapse: collapse;
+}
+
+
+.modal-personal__table td {
+	padding-left: 20px;
+	border-bottom: 1px solid black;
+}
+
+.modal-personal__table th {
+	text-align: left;
+}
+
+.modal-personal__table th,
+.modal-personal__table td {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+.modal-personal__change-button {
+	display: block;
+	width: 152px;
+	height: 41px;
+	font-size: 18px;
+	font-weight: 700;
+	color: #EFEFEF;
+	border: 1px solid #0A40FF;
+	box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	border-radius: 5px;
+	background: #0A6AF9;
+}
+
+.modal-personal__change-button {
+	margin: 0 auto;
+	margin-top: 75px;
+}
+
+.modal-personal__change-button:active {
+	background-color: #031f83;
+	transform: translateY(1px);
+	filter: saturate(150%);
+}
+
+.row-height {
+	height: 80px;
+	vertical-align: bottom;
+}
+
+.user-name__change-button,
+.user-mail__change-button,
+.user-password__change-button {
+	border: none;
+	outline: none;
+	background: #F7F6F6;
+	cursor: pointer;
+}
+
+.user-name__change-button:active,
+.user-mail__change-button:active,
+.user-password__change-button:active {
+	background: #AEAEAE4D;
+	transform: translateY(1px);
+	filter: saturate(150%);
+}

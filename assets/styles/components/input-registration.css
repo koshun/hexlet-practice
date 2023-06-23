@@ -1,4 +1,5 @@
-[class*="registration__input"], [class*="login__input"]  {
+[class*="registration__input"],
+[class*="login__input"] {
 	box-sizing: border-box;
 	padding: 10px 20px;
 	display: block;
@@ -18,4 +19,10 @@
 input:focus {
 	border: 2px solid #0A6AF9;
 	outline: #0A6AF9;
+}
+.error-border {
+	border: 2px solid #FF0000;
+}
+[class*="-error-label"] {
+	color:#FF0000;
 }

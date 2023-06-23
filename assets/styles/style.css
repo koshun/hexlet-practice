@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap');
+
+
 body {
     background-color: #FFF9F5;
     font-family: 'Nunito';
     color: #171717;
 }
+
 .wrapper {
     display: flex;
     flex: nowrap;
@@ -57,6 +61,7 @@ body {
     width: 300px;
     height: 150px;
 }
+
 .logo__link {
     display: block;
     position: relative;
@@ -69,7 +74,7 @@ body {
 .logo__text {
     width: 150px;
     position: absolute;
-    top:30px;
+    top: 30px;
     font-weight: 700;
     font-size: 22px;
     line-height: 30px;
@@ -85,7 +90,7 @@ body {
 
 /* Загаловок 'Генератор паролей' */
 .title {
-    
+
     font-size: 44px;
     font-weight: 400;
     line-height: 60px;
@@ -106,10 +111,10 @@ body {
     width: 603px;
     border-radius: 25px;
     background: #FFFFFF;
-    border: 1px solid #0A6AF9; 
+    border: 1px solid #0A6AF9;
     font-size: 32px;
     padding-left: 44px;
-   
+
 }
 
 .center__output-form {
@@ -180,7 +185,7 @@ body {
 /* Блок с кнопкой повторить пароль */
 .output-form__repeat {
     position: absolute;
-    top:22px;
+    top: 22px;
     left: 580px;
 }
 
@@ -255,10 +260,10 @@ body {
 
 /* В этом инпуте будет выводиться
 длина пароля */
-    
+
 .password-length__output {
     margin-top: 49px;
-    width: 35px;
+    width: 45px;
     height: 35px;
     margin-left: 30px;
     border: none;
@@ -286,6 +291,12 @@ body {
     border: 1px solid #FFF9D5;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
+}
+
+.generate-password__button:active {
+    transform: translateY(1px);
+    filter: saturate(150%);
+    background-color: #FFF9E9;
 }
 
 .center__generate-password {
@@ -358,16 +369,3 @@ body {
 .split-right__explain {
     margin-top: 54px;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
