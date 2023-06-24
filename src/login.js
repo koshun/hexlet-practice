@@ -1,8 +1,8 @@
 import { string } from 'yup';
 import { validate } from './validation.js';
 
-const email = document.querySelector('.login__input-email');
-const password = document.querySelector('.login__input-password');
+const email = document.querySelector('.form__email');
+const password = document.querySelector('.form__password');
 
 const emailSchema = string()
   .email({ field: 'email', message: 'Некорректный email' })

@@ -1,9 +1,9 @@
 import { string } from 'yup';
 import { validate } from './validation.js';
 
-const login = document.querySelector('.registration__input-login');
-const email = document.querySelector('.registration__input-email');
-const password = document.querySelector('.registration__input-password');
+const login = document.querySelector('.form__login');
+const email = document.querySelector('.form__email');
+const password = document.querySelector('.form__password');
 
 const loginSchema = string()
   .min(8, { field: 'login', message: 'Login должен быть не менее 8 символов' });
