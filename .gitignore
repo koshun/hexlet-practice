@@ -1,6 +1,8 @@
 node_modules
 yarn.lock
 src/.generator.js.swp
-/coverage/
+/coverage/*
+/coverage
+coverage/
 .Makefile.swp
 config/database.sqlite
