@@ -26,4 +26,13 @@ const decrypt = (data) => {
   return decrypted.toString();
 };
 
+// <<<<<<< develop
+// =======
+// const data = 'AbraCodeAbra';
+// for (let i = 1; i <= 10; i += 1) {
+//   const encData = encrypt(data);
+//   console.log(encData);
+//   console.log(decrypt(encData));
+// }
+// >>>>>>> develop
 export { encrypt, decrypt };
