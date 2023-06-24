@@ -9,7 +9,9 @@
                 <th>Login</th>
                 <th>Collection</th>
                 <th>WebSite Link</th>
-                <th></th>
+                <th>Edit</th>
+                <th>Delete</th>
+                <th>Show</th>
               </tr>
             </thead>
             <tbody>
@@ -20,6 +22,8 @@
                 <td>{{dataValues.username}}</td>
                 <td>{{ dataValues.collection.dataValues.name }}</td>
                 <td><a href="{{dataValues.svcLink}}" class="table_link" target="_blank">{{dataValues.description}}</a></td>
+                <td style="cursor: pointer;"><i class="fa-regular fa-pen-to-square" title="Update info"></i></td>
+                <td style="cursor: pointer;"><i class="fa-solid fa-trash-can" title="delete info"></i></td>
                 <td><img src="/assets/img/ellipsis-solid 1.svg" alt=""></td>
               </tr>
               {{/each}}

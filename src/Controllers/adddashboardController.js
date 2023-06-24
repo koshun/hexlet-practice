@@ -1,5 +1,6 @@
 import Accaunt from '../Models/accaunt.model.js';
 import Collection from '../Models/collection.model.js';
+import { encrypt } from '../Hellpers/cipherHelper.js';
 
 export const index = async (req, res) => {
   const collections = await Collection.findAll({
@@ -25,12 +26,12 @@ export const store = (req, res) => {
   const data = {
     userId,
     username,
-    svcPassword: sitepassword,
+    svcPassword: encrypt(sitepassword),
     description: sitename,
     svcLink: url,
     collectionId: collection,
   };
   Accaunt.create(data)
-    .then(() => res.redirect(`/dashboart/user/${userId}/add`))
+    .then(() => res.redirect(`/dashboart/user/${userId}`))
     .catch((e) => console.error(e));
 };

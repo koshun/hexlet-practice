@@ -1,7 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
-import bodyParser from 'body-parser';
+// import bodyParser from 'body-parser';
 import flash from 'connect-flash';
 import handlebars from 'express-handlebars';
 import { join, dirname } from 'path';
@@ -24,8 +24,15 @@ export default () => {
   app.set('views', join(__dirname, '/../src/Views')); // './src/Views'
   app.set('view engine', 'hbs');
   // decode url
-  app.use(bodyParser.urlencoded({ extended: true }));
-  app.use(bodyParser.json());
+  app.use(express.json({
+    type: 'application/json',
+  }));
+  app.use(express.urlencoded({
+    extended: false,
+    type: 'application/x-www-form-urlencoded',
+  }));
+  // app.use(bodyParser.urlencoded({ extended: false }));
+  // app.use(bodyParser.json());
   // static folder
   app.use(express.static(join(__dirname, '/../public')));
   // cookie and session

@@ -3,6 +3,7 @@ import { body, validationResult } from 'express-validator';
 import loginController from '../Controllers/loginController.js';
 import { index, store } from '../Controllers/signupController.js';
 import userController from '../Controllers/userController.js';
+import { apiUserGet, apiUserUpdate } from '../Controllers/api.userController.js';
 import logoutController from '../Controllers/logoutController.js';
 import strategyPassport from '../../config/passport.js';
 // import authMiddleWare from '../MiddleWare/authMiddleWare.js';
@@ -29,6 +30,10 @@ export default (app) => {
   ], validationResult), store);
   app.get('/', userController);
   app.get('/dashboart/user/:id', dashboartController);
+  // api for user data
+  app.route('/api/dashboart/user/:id')
+    .get(apiUserGet)
+    .put(apiUserUpdate);
   app.get('/logout', logoutController);
   app.route('/dashboart/user/:id/add')
     .get(dashboardIndex)
