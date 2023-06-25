@@ -7,4 +7,9 @@ const generateKey = () => {
   fs.writeFileSync('./config/cipherKey.json', JSON.stringify({ key, algo }));
 };
 
+// <<<<<<< develop
+// =======
+// generateKey();
+
+// >>>>>>> develop
 export default generateKey;
