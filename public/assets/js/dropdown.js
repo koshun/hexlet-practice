@@ -3,6 +3,7 @@ document.addEventListener('alpine:init', () => {
     open: false, 
     edit: 'readonly',
     message: '',
+    errors: false,
     form: {
       login: '',
       email: '',
@@ -39,12 +40,13 @@ document.addEventListener('alpine:init', () => {
           });
           const json = await response.json();
           this.message = json.message;
-          console.log(json.message);
+          this.errors = false;
           this.resetForm();
         } catch (e) {
           console.error('Не могу обноваить', e);
         }
       } else {
+        this.errors = true;
         this.message = 'Все поля должны быть заполнены';
       }
     },

@@ -1,0 +1,46 @@
+       {{>d_left_section}}
+       {{!-- {{log accaunt}} --}}
+       <section class="column right">
+        <form action="/dashboart/user/{{accaunt.userId}}/update/{{accaunt.id}}" method="post">
+        <div class="field">
+          <label class="label">User name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="User name" name="username" value="{{ accaunt.username }}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">URL</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="URL" name="url" value="{{ accaunt.svcLink }}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Site name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Site name" name="sitename" value="{{ accaunt.description }}">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Password" name="sitepassword" value="{{accaunt.svcPassword}}">
+          </div>
+        </div>
+      {{#if accaunt.collection}}
+        <div class="field">
+          <label class="label">Collection</label>
+          <div class="select">
+            <select name="collection">
+               <option value="{{ accaunt.collection.dataValues.id}}">{{ accaunt.collection.dataValues.name}}</option>
+              {{#each collections}}
+              <option value="{{dataValues.id}}">{{dataValues.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+          {{/if}}
+        <div class="column add_button is-flex is-align-items-center"><button class="button add_button_link is-info ">Update</a></div>
+      </form>
+      </section>
+
+      {{!-- accaunt.dataValues.collection.dataValues.name --}}

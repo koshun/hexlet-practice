@@ -11,6 +11,9 @@ body, html {
   color: #171717;
   height: 100%;
 }
+.center {
+  text-align: center;
+}
 .wrapper {
   height: 100vh;
   margin: 0 auto;
@@ -94,7 +97,14 @@ td>img {
   padding-bottom: 44px;
 }
 .error{background-color: hsl(348, 100%, 61%);padding: 1em;color:hsl(347, 90%, 96%); border-radius: 0.5em; margin-bottom: 1.75em; text-align: center;}
-
+.success {
+  background-color: hsl(141, 71%, 48%);
+  color:hsl(347, 90%, 96%);
+  padding: 1em;
+  border-radius: 0.5em; 
+  margin-bottom: 1.75em; 
+  text-align: center;
+}
 .modal-personal {
 	position: fixed;
 	top: 20px;
