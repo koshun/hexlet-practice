@@ -11,16 +11,20 @@ export const index = (request, response) => {
 
 export const store = async (request, response) => {
   const { collection } = request.body;
+  if (!collection) {
+    request.flash('error', 'Колекция не может быть пустой');
+    return response.redirect(`/dashboart/user/${request.id}/collections/add`);
+  }
   const data = {
     name: collection,
   };
   try {
     const newCollection = await Collection.create(data);
     console.log(newCollection);
-    response.redirect(`/dashboart/user/${request.user.id}`);
+    return response.redirect(`/dashboart/user/${request.user.id}/collections/add`);
   } catch (e) {
     request.flash('error', 'That collection is already exist');
-    response.redirect(`/dashboart/user/${request.user.id}/collections/add`);
     console.error('Somethint', e.message);
+    return response.redirect(`/dashboart/user/${request.user.id}/collections/add`);
   }
 };

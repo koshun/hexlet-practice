@@ -1,5 +1,5 @@
 import passport from 'passport';
-import { body, validationResult } from 'express-validator';
+import { validationResult } from 'express-validator';
 import loginController from '../Controllers/loginController.js';
 import { index, store } from '../Controllers/signupController.js';
 import userController from '../Controllers/userController.js';
@@ -17,6 +17,7 @@ import {
 import { index as collectionIndex, store as collectionStore } from '../Controllers/collectionController.js';
 import deleteAccountItem from '../Controllers/api.dashboardController.js';
 import { index as indexCollection, deleteCollection, updateCollection } from '../Controllers/api.collectionController.js';
+import signupValidator from '../validators/signupValidator.js';
 
 export default (app) => {
   strategyPassport(passport);
@@ -29,11 +30,7 @@ export default (app) => {
       },
     );
   app.get('/signup', index);
-  app.post('/singup', validate([
-    body('email').isEmail().normalizeEmail().withMessage('Email must be valid e-mail string'),
-    body('password').isLength({ min: 6 }).withMessage('password min 6 signs'),
-    body('login').notEmpty().isAlpha().withMessage('Login is required'),
-  ], validationResult), store);
+  app.post('/singup', validate(signupValidator, validationResult), store);
   app.get('/', userController);
 
   // delete account item
@@ -57,9 +54,8 @@ export default (app) => {
   app.get('/api/dashboart/collections', indexCollection);
   app.delete('/api/dashboart/collections/:id/delete', deleteCollection);
   app.put('/api/dashboart/collections/:id/update', updateCollection);
-  app.route('/dashboart/user/:id/collections/add')
-    .get(collectionIndex)
-    .post(collectionStore);
+  app.get('/dashboart/user/:id/collections/add', collectionIndex);
+  app.post('/dashboart/user/:id/collections/add', collectionStore);
 
   // The 404 Route (ALWAYS Keep this as the last route)
   app.get('*', (req, res) => {

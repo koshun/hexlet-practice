@@ -30,6 +30,7 @@
           <label class="label">Collection</label>
           <div class="select">
             <select name="collection">
+              <option value="0">All</option>
               {{#each collections}}
               <option value="{{dataValues.id}}">{{dataValues.name}}</option>
               {{/each}}
