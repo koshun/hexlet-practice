@@ -1,0 +1,43 @@
+       {{>d_left_section}}
+       <section class="column right">
+        <form action="/dashboart/user/{{user.id}}/add" method="post">
+        <div class="field">
+          <label class="label">User name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="User name" name="username">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">URL</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="URL" name="url">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Site name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Site name" name="sitename">
+          </div>
+        </div>
+        <div class="field">
+          <label class="label">Password</label>
+          <div class="control">
+            <input class="input" type="password" placeholder="Password" name="sitepassword">
+          </div>
+        </div>
+          {{#if collections}}
+        <div class="field">
+          <label class="label">Collection</label>
+          <div class="select">
+            <select name="collection">
+              <option value="0">All</option>
+              {{#each collections}}
+              <option value="{{dataValues.id}}">{{dataValues.name}}</option>
+              {{/each}}
+            </select>
+          </div>
+        </div>
+          {{/if}}
+        <div class="column add_button is-flex is-align-items-center"><button class="button add_button_link is-info ">Add</a></div>
+      </form>
+      </section>

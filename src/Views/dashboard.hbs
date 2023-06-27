@@ -1,0 +1,41 @@
+      {{>d_left_section}}
+<section class="column right">
+        <div class="column add_button"><a href="/dashboart/user/{{ user.id }}/add" class="button is-info">Add new +</a></div>
+        <div class="table-container">
+          <table class="table is-striped is-fullwidth">
+            <thead>
+              <tr>
+                <th style="text-align:center">Item name</th>
+                <th style="text-align:center">Login</th>
+                <th style="text-align:center">Collection</th>
+                <th style="text-align:center">WebSite Link</th>
+                <th style="text-align:center">Edit</th>
+                <th style="text-align:center">Delete</th>
+                <th style="text-align:center">Password</th>
+              </tr>
+            </thead>
+            <tbody x-data="dashboard" >
+              {{#if data}}
+              {{#each data}}
+              <tr>
+                <td style="text-align:center">{{dataValues.description}}</td>
+                <td style="text-align:center">{{dataValues.username}}</td>
+                <td style="text-align:center">{{ dataValues.collection.dataValues.name }}</td>
+                <td style="text-align:center"><a href="{{dataValues.svcLink}}" class="table_link" target="_blank">{{dataValues.description}}</a></td>
+                <td style="cursor:pointer; text-align:center" class="center">
+                    <a href="/dashboart/user/{{ dataValues.userId }}/update/{{ dataValues.id }}"><i class="fa-regular fa-pen-to-square" title="Update info"></i></a>
+                </td>
+                <td @click="deleteItem({{ dataValues.id }})" style="cursor: pointer; text-align:center">
+                  {{!-- <a href="/dashboart/accaunt/{{dataValues.id}}/delete"> --}}
+                    <i class="fa-solid fa-trash-can" title="delete info"></i>
+                </td>
+                <td style="cursor: pointer; text-align:center"><img src="/assets/img/ellipsis-solid 1.svg" alt=""></td>
+              </tr>
+              {{/each}}
+            {{else}}
+            <p class="center">Not to show</p>
+            {{/if}}
+            </tbody>
+          </table>
+        </div>
+</section>

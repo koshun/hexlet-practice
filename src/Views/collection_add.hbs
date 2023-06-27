@@ -1,0 +1,46 @@
+       {{>d_left_section}}
+       <section class="column right">
+        {{#if error}}
+          <p class="error">{{error}}</p>
+        {{/if}}
+        <form action="/dashboart/user/{{user.id}}/collections/add" method="post">
+        <div class="field">
+          <label class="label">Collection name</label>
+          <div class="control">
+            <input class="input" type="text" placeholder="Collection name" name="collection">
+          </div>
+        </div>
+        <div class="column add_button is-flex is-align-items-center"><button class="button add_button_link is-info ">Add</a></div>
+      </form>
+
+
+      {{!-- table of content --}}
+      <div class="table-container">
+          <table x-data="collection" x-init="getCollections()" class="table is-striped is-fullwidth">
+            <template x-if="collections.length !== 0">
+              <thead>
+                <tr>
+                  <th style="text-align:center">Collection</th>
+                  <th style="text-align:center">Edit</th>
+                  <th style="text-align:center">Delete</th>
+                </tr>
+              </thead>
+              </template>
+                <tbody>
+                  <template x-for="collect in collections" >
+                  <tr>
+                    <td style="text-align:center" ><input :value="collect.name"   type="text" style="background-color: #FFF9F5; text-align:center; padding:0"></td>
+                    <td @click="updateCollection(collect.id, $el.previousElementSibling.firstChild.value)" style="cursor:pointer; text-align:center" class="center">
+                      <i class="fa-regular fa-pen-to-square" title="Update info"></i>
+                    </td>
+                    <td  @click="deleteCollection(collect.id)" style="cursor: pointer; text-align:center">
+                      {{!-- <a href="/dashboart/accaunt/{{dataValues.id}}/delete"> --}}
+                        <i class="fa-solid fa-trash-can" title="delete info"></i>
+                    </td>
+                  </tr>
+                  </template>
+                </tbody>
+              
+          </table>
+        </div>
+      </section>

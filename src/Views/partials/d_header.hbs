@@ -1,0 +1,13 @@
+    <header class="columns header">
+      <div class="column logo is-4">
+        <a href="/"><img src="/assets/img//Logo.svg" alt="logo"></a>
+      </div>
+      <div class="column center is-5 content" ><h1 class="center_hero title">Dashboard</h1></div>
+      <div class="column user_info">
+        <ul x-data="dropdown" class="user_info_menu columns" >
+          <li @click="open = ! open" class="column"><span class="icon"><i class="fa-solid fa-user"></i></span><a href="#" class="user_info--link">{{user.login}}</a></li>
+      {{>modal_user}}
+          <li class="column"><span class="icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span><a href="/logout" class="user_info--link">LogOut</a></li>
+        </ul>
+      </div>
+    </header>

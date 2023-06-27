@@ -1,0 +1,93 @@
+{{>mainleft}}
+
+<div class="center">
+			<h2 class="title">Генератор паролей</h2>
+			<!-- Блок вывода пароля в нем: вывод пароля, уровень надежности,
+			кнопка сделать другой пароль, кнопка скопировать пароль -->
+			<div class="output-form center__output-form">
+				<!-- Вывод пароля -->
+				<input type="text" class="output-form__password" />
+
+
+				<!-- Уровень надежности, три состояния. Если:
+				Надежный, то password-check-text_protected и password-check-text_protected и 'Надежный'
+				Плохой, то password-check-text_bad и password-check-text_bad и 'Плохой'
+				Хороший, то password-check-text_good и password-check-text_good и 'Хороший' -->
+
+				<div class="password-check output-form__password-check password-check_good">
+					<span class="password-check-text_good">Хороший</span>
+				</div>
+
+
+				<!-- Блок с кнопкой другой пароль -->
+				<div class="repeat output-form__repeat">
+					<button type="button" class="repeat__button">
+						<img src="assets/img/repeat-password-icon.svg" alt="" class="repeat__button-icon">
+					</button>
+				</div>
+
+				<!-- Блок с кнопкой повторить пароль -->
+				<div class="output__copy-password copy-password">
+					<button type="button" class="copy-password__button">
+						<img src="assets/img/copy-password-icon.svg" alt="" class="copy-password__button-icon">
+					</button>
+				</div>
+			</div>
+
+
+			<!-- Блок с чекбоксами -->
+			<div class="checkbox-group center__checkbox-group">
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-chars-input-lower checkbox" name="" checked>
+					<span class="checkbox__text">abc</span>
+				</label>
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-chars-input-upper checkbox" name="" checked>
+					<span class="checkbox__text">ABC</span>
+				</label>
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-numbers-input checkbox" name="" checked>
+					<span class="checkbox__text">123</span>
+				</label>
+				<label class="text">
+					<input type="checkbox" class="checkbox-group__include-symbols-input checkbox" name="">
+					<span class="checkbox__text">@#$^</span>
+				</label>
+			</div>
+
+
+			<!-- Длина пароля.Будет слайдер -->
+			<div class="password-length center__password-length">
+
+				<div class="password-length__range-block">
+					<input type="range" class="password-length__range" name="" min="6" max="25" value="8">
+				</div>
+
+				<!-- В этом блоке (в инпуте) будет выводиться выбранная длина -->
+				<div class="password-length__output-block">
+					<label>
+						<span class="password-length__text">Длина пароля:</span>
+
+						<input type="text" placeholder="10" class="password-length__output" disabled>
+					</label>
+				</div>
+
+			</div>
+
+
+			<!-- Блок с кнопкой генерации повтора -->
+			<div class="generate-password center__generate-password">
+				<button type="button" class="generate-password__button"><span class="text">Сгенерировать
+						пароль</span></button>
+			</div>
+
+			<!-- Копирайт -->
+			<div class="copyright">
+				<img src="assets/img/copyright-icon.svg" alt="" class="copyright__icon">
+				<span class="copyright__text">AbraCodeAbra.com. Все права защищены. 2023</span>
+			</div>
+		</div>
+
+    {{>mainline}}
+
+		{{>mainright}}

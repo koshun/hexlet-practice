@@ -1,0 +1,16 @@
+.greeting__header,
+.registration__paragraph,
+.login__paragraph {
+    text-align: center;
+    margin: 20px auto;
+}
+
+.logo__text {
+    width: 25%;
+}
+
+.entry__login,
+.entry__registration {
+    margin-left: 10px;
+    font-size: 20px;
+}
