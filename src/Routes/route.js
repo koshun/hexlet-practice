@@ -1,19 +1,23 @@
 import passport from 'passport';
 import { validationResult } from 'express-validator';
-import loginController from '../Controllers/loginController.js';
-import { index, store } from '../Controllers/signupController.js';
-import userController from '../Controllers/userController.js';
+import mainController from '../Controllers/mainController.js';
 import { apiUserGet, apiUserUpdate } from '../Controllers/api.userController.js';
-import logoutController from '../Controllers/logoutController.js';
+import {
+  loginAction,
+  logoutAction,
+  indexSignUpAction,
+  storeSignUpAction,
+} from '../Controllers/userController.js';
 import strategyPassport from '../../config/passport.js';
 import authMiddleWare from '../MiddleWare/authMiddleWare.js';
 import validate from '../validators/registrationValidator.js';
-import dashboartController from '../Controllers/dashboartController.js';
 import {
-  index as dashboardIndex,
-  store as dashboardStore,
-  updateIndex, updateStore,
-} from '../Controllers/adddashboardController.js';
+  indexAction,
+  showAction,
+  storeAction,
+  updateIndexAction,
+  updateStoreAction,
+} from '../Controllers/dashboartController.js';
 import { index as collectionIndex, store as collectionStore } from '../Controllers/collectionController.js';
 import deleteAccountItem from '../Controllers/api.dashboardController.js';
 import { index as indexCollection, deleteCollection, updateCollection } from '../Controllers/api.collectionController.js';
@@ -22,34 +26,34 @@ import signupValidator from '../validators/signupValidator.js';
 export default (app) => {
   strategyPassport(passport);
   app.route('/login')
-    .get(loginController)
+    .get(loginAction)
     .post(
       passport.authenticate('local', { failureRedirect: '/login' }),
       (req, res) => {
         res.redirect(`/dashboart/user/${req.user.id}`);
       },
     );
-  app.get('/signup', index);
-  app.post('/singup', validate(signupValidator, validationResult), store);
-  app.get('/', userController);
+  app.get('/signup', indexSignUpAction);
+  app.post('/singup', validate(signupValidator, validationResult), storeSignUpAction);
+  app.get('/', mainController);
 
   // delete account item
   app.use('/dashboart/*', authMiddleWare);
   app.delete('/api/dashboart/accaunt/delete/:id', deleteAccountItem);
   app.route('/dashboart/user/:userId/update/:id')
-    .get(updateIndex)
-    .post(updateStore);
-  app.get('/dashboart/user/:id', dashboartController);
+    .get(updateIndexAction)
+    .post(updateStoreAction);
+  app.get('/dashboart/user/:id', indexAction);
   // api for user data
   app.route('/api/dashboart/user/:id')
     .get(apiUserGet)
     .put(apiUserUpdate);
 
-  app.get('/logout', logoutController);
+  app.get('/logout', logoutAction);
 
   app.route('/dashboart/user/:id/add')
-    .get(dashboardIndex)
-    .post(dashboardStore);
+    .get(showAction)
+    .post(storeAction);
 
   // collections url
   app.get('/api/dashboart/collections', indexCollection);
