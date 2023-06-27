@@ -6,7 +6,7 @@ import userController from '../Controllers/userController.js';
 import { apiUserGet, apiUserUpdate } from '../Controllers/api.userController.js';
 import logoutController from '../Controllers/logoutController.js';
 import strategyPassport from '../../config/passport.js';
-// import authMiddleWare from '../MiddleWare/authMiddleWare.js';
+import authMiddleWare from '../MiddleWare/authMiddleWare.js';
 import validate from '../validators/registrationValidator.js';
 import dashboartController from '../Controllers/dashboartController.js';
 import {
@@ -34,6 +34,7 @@ export default (app) => {
   app.get('/', userController);
 
   // delete account item
+  app.use('/dashboart/*', authMiddleWare);
   app.delete('/api/dashboart/accaunt/delete/:id', deleteAccountItem);
   app.route('/dashboart/user/:userId/update/:id')
     .get(updateIndex)
