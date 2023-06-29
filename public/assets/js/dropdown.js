@@ -51,6 +51,7 @@ document.addEventListener('alpine:init', () => {
           this.errors = false;
           this.success = true;
           this.resetForm();
+          window.location.reload(true);
         } catch (e) {
           console.error('Не могу обноваить', e);
         }

@@ -26,5 +26,6 @@ export const apiUserUpdate = async (req, res) => {
       id,
     },
   });
+  req.user.login = login;
   res.json({ message: 'user data successfully updated' });
 };
