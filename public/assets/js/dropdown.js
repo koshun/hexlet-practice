@@ -1,9 +1,17 @@
 document.addEventListener('alpine:init', () => {
   Alpine.data('dropdown', () => ({ 
     open: false, 
-    edit: 'readonly',
-    message: '',
+    edit: {
+      login: 'readonly',
+      email: 'readonly',
+      password: 'readonly',
+    },
+    message: {
+      error: '',
+      success: ''
+    },
     errors: false,
+    success: false,
     form: {
       login: '',
       email: '',
@@ -39,21 +47,23 @@ document.addEventListener('alpine:init', () => {
             body: JSON.stringify(data)
           });
           const json = await response.json();
-          this.message = json.message;
+          this.message.success = json.message;
           this.errors = false;
+          this.success = true;
           this.resetForm();
         } catch (e) {
           console.error('Не могу обноваить', e);
         }
       } else {
         this.errors = true;
-        this.message = 'Все поля должны быть заполнены';
+        this.success = false;
+        this.message.error = 'Все поля должны быть заполнены';
       }
     },
     resetForm() {
       this.form.login = '';
       this.form.email = '';
-      this.password = '';
+      this.form.password = '';
   },
   }));
 });

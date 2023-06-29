@@ -2,7 +2,10 @@
 		появляется это модальное окно -->
 		<div x-show="open" @click.outside="open = false" x-transition class="modal-personal">
 			<table class="modal-personal__table">
-				<p x-text="message"  x-cloak :class="errors ? 'error' : '' " ></p>
+				<template x-if="errors" >
+				<p x-text="message.error"  x-cloak :class="errors ? 'error' : '' " ></p>
+				</template>
+				<p x-text="message.success"  x-cloak :class="success ? 'success' : '' " ></p>
 				<!-- В таблице три части с данными пользователя -->
 				<caption @click="getUserData({{ user.id }})" class="modal-personal__user-name user-name" style="padding: 5px; margin-bottom: 5px;cursor: pointer; border: 1px solid #124124">Click to get data</caption>
 
@@ -12,10 +15,10 @@
 			  	</tr>
 			  	<tr>
 					<!-- Сами данные -->
-					<td class="user-name"><input :readonly="edit" type="text" x-model="form.login" ></td>
+					<td class="user-name"><input :readonly="edit.login" type="text" x-model="form.login" ></td>
 					<!-- Кнопка-иконка которая должна как-то поменять -->
 					<td>
-						<button @click="edit=false"  class="user-name__change-button">
+						<button @click="edit.login=false"  class="user-name__change-button">
 							<img src="/assets/img/change-icon.svg" alt="">
 						</button>
 					</td>
@@ -24,9 +27,9 @@
 					<th>Email</th>
 			  	</tr>
 			  	<tr>
-					<td class="user-mail"><input x-model="form.email" :readonly="edit" type="email" value="Vasya Pupkin@gmail.com" name="user_email" ></td>
+					<td class="user-mail"><input x-model="form.email" :readonly="edit.email" type="email" value="Vasya Pupkin@gmail.com" name="user_email" ></td>
 					<td>
-						<button  @click="edit=false" class="user-mail__change-button">
+						<button  @click="edit.email=false" class="user-mail__change-button">
 							<img src="/assets/img/change-icon.svg" alt="">
 						</button>
 					</td>
@@ -37,9 +40,9 @@
 			  	</tr>
 
 				<tr>
-					<td class="user-password"><input x-model="form.password" type="text" value="*************" name="user_password"></td>
+					<td class="user-password"><input x-model="form.password" :readonly="edit.password" type="text" value="*************" name="user_password"></td>
 					<td>
-						<button  @click="genPassword()"  title="Click me to generate password" class="user-password__change-button">
+						<button  @click="edit.password=false"  title="Click me to generate password" class="user-password__change-button">
 							<img src="/assets/img/change-icon.svg" alt="">
 						</button>
 					</td>
